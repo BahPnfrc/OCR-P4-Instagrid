@@ -23,6 +23,35 @@
                                     <constraint firstAttribute="width" constant="116" id="ayF-g8-MkM"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView">
+                                <rect key="frame" x="64" y="238" width="300" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihE-Tp-zvB" userLabel="SwipeImageView">
+                                        <rect key="frame" x="143.66666666666666" y="16" width="13" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="13" id="rmW-sR-GOE"/>
+                                            <constraint firstAttribute="height" constant="13" id="shr-Xb-mMw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3X-9j-eby" userLabel="SwipeLabel">
+                                        <rect key="frame" x="129.33333333333334" y="34" width="41.666666666666657" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="myA-gJ-IN3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hse-fc-aVu"/>
+                                    <constraint firstItem="U3X-9j-eby" firstAttribute="bottom" secondItem="2wb-Ab-30E" secondAttribute="bottom" id="jUF-DE-ZL9"/>
+                                    <constraint firstItem="ihE-Tp-zvB" firstAttribute="bottom" secondItem="U3X-9j-eby" secondAttribute="top" constant="-5" id="me2-0c-Zx8"/>
+                                    <constraint firstItem="ihE-Tp-zvB" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="xz1-gV-lLO"/>
+                                    <constraint firstItem="U3X-9j-eby" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="yLF-17-pQM"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView">
                                 <rect key="frame" x="64" y="313" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,11 +96,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71764707569999997" green="0.84313726430000002" blue="0.89803922179999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2CC-I8-c40"/>
                             <constraint firstItem="XEY-lw-neV" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="TX6-lq-auj"/>
                             <constraint firstItem="XEY-lw-neV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ToI-HZ-P4L"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xru-lb-lDG"/>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="YJ1-hC-Hah"/>
                             <constraint firstItem="LEu-oN-cdh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="iyb-jE-ZZr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XEY-lw-neV" secondAttribute="bottom" constant="31" id="k2R-Gw-dPF"/>
+                            <constraint firstItem="VBM-LC-5eS" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="bottom" constant="15" id="onN-DU-Pe3"/>
                             <constraint firstItem="LEu-oN-cdh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r1j-0I-HEh"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uIE-Cl-it1"/>
                         </constraints>
