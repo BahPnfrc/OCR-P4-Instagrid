@@ -33,9 +33,34 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEY-lw-neV" userLabel="SettingView">
                                 <rect key="frame" x="64" y="781" width="300" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DGo-K0-AmD" userLabel="first">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="3Yq-ju-LV8"/>
+                                            <constraint firstAttribute="width" secondItem="DGo-K0-AmD" secondAttribute="height" id="a8E-fn-stO"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BwA-XJ-KHr" userLabel="second">
+                                        <rect key="frame" x="110" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x0v-Bd-RFj" userLabel="third">
+                                        <rect key="frame" x="220" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="x0v-Bd-RFj" secondAttribute="trailing" id="1Z3-Tu-oUq"/>
+                                    <constraint firstItem="DGo-K0-AmD" firstAttribute="centerY" secondItem="XEY-lw-neV" secondAttribute="centerY" id="2PV-cf-ccg"/>
+                                    <constraint firstItem="BwA-XJ-KHr" firstAttribute="width" secondItem="DGo-K0-AmD" secondAttribute="width" id="Aa1-EM-bZl"/>
+                                    <constraint firstItem="x0v-Bd-RFj" firstAttribute="height" secondItem="DGo-K0-AmD" secondAttribute="height" id="C46-GY-8eT"/>
+                                    <constraint firstItem="BwA-XJ-KHr" firstAttribute="height" secondItem="DGo-K0-AmD" secondAttribute="height" id="bGB-WD-QUX"/>
+                                    <constraint firstItem="x0v-Bd-RFj" firstAttribute="centerY" secondItem="XEY-lw-neV" secondAttribute="centerY" id="eTr-QV-oEE"/>
                                     <constraint firstAttribute="height" constant="80" id="gFf-zV-puq"/>
+                                    <constraint firstItem="DGo-K0-AmD" firstAttribute="leading" secondItem="XEY-lw-neV" secondAttribute="leading" id="jYB-MM-yZX"/>
+                                    <constraint firstItem="x0v-Bd-RFj" firstAttribute="width" secondItem="DGo-K0-AmD" secondAttribute="width" id="lIi-IO-WUK"/>
+                                    <constraint firstItem="BwA-XJ-KHr" firstAttribute="centerX" secondItem="XEY-lw-neV" secondAttribute="centerX" id="pGP-s1-0X1"/>
+                                    <constraint firstItem="BwA-XJ-KHr" firstAttribute="centerY" secondItem="XEY-lw-neV" secondAttribute="centerY" id="yXZ-iF-Kxs"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -54,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="119"/>
+            <point key="canvasLocation" x="121.96261682242989" y="118.5745140388769"/>
         </scene>
     </scenes>
     <resources>
