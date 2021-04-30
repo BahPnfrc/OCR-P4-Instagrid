@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" constant="116" id="ayF-g8-MkM"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView" customClass="SwipeViewController" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="64" y="238" width="300" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihE-Tp-zvB" userLabel="SwipeImageView">
@@ -51,8 +51,12 @@
                                     <constraint firstItem="ihE-Tp-zvB" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="xz1-gV-lLO"/>
                                     <constraint firstItem="U3X-9j-eby" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="yLF-17-pQM"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="image" destination="ihE-Tp-zvB" id="JMk-zc-boM"/>
+                                    <outlet property="label" destination="U3X-9j-eby" id="kC5-pb-eiQ"/>
+                                </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="64" y="313" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -60,7 +64,7 @@
                                     <constraint firstAttribute="height" constant="300" id="NEf-VS-9Ks"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEY-lw-neV" userLabel="SettingView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEY-lw-neV" userLabel="SettingView" customClass="SettingViewController" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="64" y="781" width="300" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DGo-K0-AmD" userLabel="first">
@@ -91,6 +95,11 @@
                                     <constraint firstItem="BwA-XJ-KHr" firstAttribute="centerX" secondItem="XEY-lw-neV" secondAttribute="centerX" id="pGP-s1-0X1"/>
                                     <constraint firstItem="BwA-XJ-KHr" firstAttribute="centerY" secondItem="XEY-lw-neV" secondAttribute="centerY" id="yXZ-iF-Kxs"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="firstImage" destination="DGo-K0-AmD" id="wuR-5f-h3t"/>
+                                    <outlet property="secondImage" destination="BwA-XJ-KHr" id="6C7-j5-1zr"/>
+                                    <outlet property="thirdImage" destination="x0v-Bd-RFj" id="5Nj-xn-aAD"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
