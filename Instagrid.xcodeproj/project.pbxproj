@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0F99FE263C6A93001C55E5 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F99FD263C6A93001C55E5 /* SwipeViewController.swift */; };
+		0B0F9A01263C6AB3001C55E5 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F9A00263C6AB3001C55E5 /* DisplayViewController.swift */; };
+		0B0F9A04263C6AC5001C55E5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F9A03263C6AC5001C55E5 /* SettingViewController.swift */; };
 		0B5DC84E263C067500106ACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5DC84D263C067500106ACC /* AppDelegate.swift */; };
 		0B5DC850263C067500106ACC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5DC84F263C067500106ACC /* SceneDelegate.swift */; };
 		0B5DC852263C067500106ACC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5DC851263C067500106ACC /* ViewController.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0F99FD263C6A93001C55E5 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		0B0F9A00263C6AB3001C55E5 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
+		0B0F9A03263C6AC5001C55E5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		0B5DC84A263C067500106ACC /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5DC84D263C067500106ACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B5DC84F263C067500106ACC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				0B5DC851263C067500106ACC /* ViewController.swift */,
+				0B0F99FD263C6A93001C55E5 /* SwipeViewController.swift */,
+				0B0F9A00263C6AB3001C55E5 /* DisplayViewController.swift */,
+				0B0F9A03263C6AC5001C55E5 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,9 +194,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0F9A01263C6AB3001C55E5 /* DisplayViewController.swift in Sources */,
 				0B5DC852263C067500106ACC /* ViewController.swift in Sources */,
 				0B5DC84E263C067500106ACC /* AppDelegate.swift in Sources */,
 				0B5DC850263C067500106ACC /* SceneDelegate.swift in Sources */,
+				0B0F99FE263C6A93001C55E5 /* SwipeViewController.swift in Sources */,
+				0B0F9A04263C6AC5001C55E5 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
