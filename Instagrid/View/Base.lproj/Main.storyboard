@@ -16,6 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-pX-M8l">
+                                <rect key="frame" x="30" y="30" width="315" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="6bm-HK-Rjb"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Instagrid">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="30" name="ThirstySoftRegular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6bm-HK-Rjb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6bm-HK-Rjb"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView" customClass="SwipeViewController" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="30" y="101" width="315" height="60"/>
                                 <subviews>
@@ -76,32 +102,46 @@
                                     <outlet property="label" destination="U3X-9j-eby" id="kC5-pb-eiQ"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-pX-M8l">
-                                <rect key="frame" x="30" y="30" width="315" height="35"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="30" y="176" width="315" height="315"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bkm-mv-8jF" userLabel="StackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="315"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="65r-zs-f7R" userLabel="UpRow">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="157.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBr-Fz-pI7" userLabel="MainPic">
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-0E-Gsq" userLabel="SecondPic">
+                                                        <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-ah-uRA" userLabel="DownRow">
+                                                <rect key="frame" x="0.0" y="157.5" width="315" height="157.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zI-gf-xxt" userLabel="MainPic">
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qbj-m0-un4" userLabel="SecondPic">
+                                                        <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="6bm-HK-Rjb"/>
+                                    <constraint firstItem="bkm-mv-8jF" firstAttribute="top" secondItem="VBM-LC-5eS" secondAttribute="top" id="SeE-gu-uFt"/>
+                                    <constraint firstItem="bkm-mv-8jF" firstAttribute="leading" secondItem="VBM-LC-5eS" secondAttribute="leading" id="VJw-bq-Vf4"/>
+                                    <constraint firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="height" multiplier="1:1" id="Xnn-Gt-4hf"/>
+                                    <constraint firstAttribute="trailing" secondItem="bkm-mv-8jF" secondAttribute="trailing" id="mQ9-Qv-bFy"/>
+                                    <constraint firstAttribute="bottom" secondItem="bkm-mv-8jF" secondAttribute="bottom" id="tad-Ao-uYH"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Instagrid">
-                                        <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="30" name="ThirstySoftRegular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="6bm-HK-Rjb"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="6bm-HK-Rjb"/>
-                                    </mask>
-                                </variation>
-                            </label>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa">
                                 <rect key="frame" x="30" y="538.5" width="315" height="98.5"/>
                                 <subviews>
@@ -134,7 +174,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBn-2I-36r">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button" backgroundImage="Layout 2"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
@@ -160,7 +200,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qih-Gv-onA">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button" backgroundImage="Layout 3"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
@@ -185,13 +225,6 @@
                                 <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="30" y="176" width="315" height="315"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="height" multiplier="1:1" id="Xnn-Gt-4hf"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71764707569999997" green="0.84313726430000002" blue="0.89803922179999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -226,6 +259,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="v55-tu-qeB"/>
+                                <exclude reference="FQ2-Bn-OQl"/>
                                 <exclude reference="BHb-mn-FbM"/>
                                 <exclude reference="FnW-DY-pxT"/>
                                 <exclude reference="Npl-Jk-gin"/>
@@ -235,7 +269,6 @@
                                 <exclude reference="kjw-dl-OXG"/>
                                 <exclude reference="pIO-a2-RYV"/>
                                 <exclude reference="zhI-eZ-bwK"/>
-                                <exclude reference="FQ2-Bn-OQl"/>
                                 <exclude reference="DbC-ko-VgH"/>
                                 <exclude reference="N1f-7D-yF9"/>
                                 <exclude reference="bpC-D4-i2c"/>
@@ -245,6 +278,8 @@
                             <mask key="constraints">
                                 <exclude reference="Vwy-7z-i1n"/>
                                 <include reference="v55-tu-qeB"/>
+                                <exclude reference="Az5-uP-OMu"/>
+                                <include reference="FQ2-Bn-OQl"/>
                                 <include reference="BHb-mn-FbM"/>
                                 <exclude reference="FnW-DY-pxT"/>
                                 <include reference="Npl-Jk-gin"/>
@@ -257,8 +292,6 @@
                                 <exclude reference="ceI-rv-WVe"/>
                                 <exclude reference="kjw-dl-OXG"/>
                                 <include reference="pIO-a2-RYV"/>
-                                <exclude reference="Az5-uP-OMu"/>
-                                <include reference="FQ2-Bn-OQl"/>
                                 <include reference="DbC-ko-VgH"/>
                                 <exclude reference="N1f-7D-yF9"/>
                                 <include reference="bpC-D4-i2c"/>
@@ -281,6 +314,8 @@
     </scenes>
     <resources>
         <image name="Layout 1" width="27" height="27"/>
+        <image name="Layout 2" width="27" height="27"/>
+        <image name="Layout 3" width="27" height="27"/>
         <image name="Selected" width="27" height="27"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
