@@ -64,8 +64,8 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Delm-Medium</string>
-		<string>ThirstySoftRegular</string>
+		<string>Delm.otf</string>
+		<string>ThirstySoftRegular.otf</string>
 	</array>
 </dict>
 </plist>

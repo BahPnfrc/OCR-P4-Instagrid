@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,10 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="64" y="313" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8b8-dE-qA3"/>
+                                    <constraint firstAttribute="height" constant="300" id="NEf-VS-9Ks"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView" customClass="SwipeViewController" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="64" y="238" width="300" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihE-Tp-zvB" userLabel="SwipeImageView">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihE-Tp-zvB" userLabel="SwipeImage">
                                         <rect key="frame" x="143.66666666666666" y="16" width="13" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="13" id="rmW-sR-GOE"/>
@@ -49,19 +57,17 @@
                                     <outlet property="label" destination="U3X-9j-eby" id="kC5-pb-eiQ"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="64" y="313" width="300" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="8b8-dE-qA3"/>
-                                    <constraint firstAttribute="height" constant="300" id="NEf-VS-9Ks"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-pX-M8l">
-                                <rect key="frame" x="193" y="105" width="42" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-pX-M8l">
+                                <rect key="frame" x="155.66666666666666" y="67" width="116.99999999999997" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Instagrid">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="30" name="ThirstySoftRegular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa">
@@ -150,11 +156,13 @@
                         <color key="backgroundColor" red="0.71764707569999997" green="0.84313726430000002" blue="0.89803922179999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="2wb-Ab-30E" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2CC-I8-c40"/>
+                            <constraint firstItem="KGI-pX-M8l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="23" id="7cU-9y-6qQ"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xru-lb-lDG"/>
                             <constraint firstItem="2wb-Ab-30E" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="YJ1-hC-Hah"/>
                             <constraint firstItem="4S4-CU-BZa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dIh-nL-oBn"/>
+                            <constraint firstItem="KGI-pX-M8l" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hXH-3y-xcB"/>
                             <constraint firstItem="4S4-CU-BZa" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="iHe-gE-tsE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4S4-CU-BZa" secondAttribute="bottom" constant="31" id="ib8-B7-rgN"/>
+                            <constraint firstItem="4S4-CU-BZa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-31" id="ib8-B7-rgN"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="bottom" constant="15" id="onN-DU-Pe3"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uIE-Cl-it1"/>
                         </constraints>
