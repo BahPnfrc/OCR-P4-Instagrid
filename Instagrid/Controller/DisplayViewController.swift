@@ -9,6 +9,11 @@ import UIKit
 
 class DisplayViewController: UIView {
 
+    @IBOutlet weak var upRowMainPic: UIImageView!
+    @IBOutlet weak var upRowSecondPic: UIImageView!
+    @IBOutlet weak var downRowMainPic: UIImageView!
+    @IBOutlet weak var downRowSecondPic: UIImageView!
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

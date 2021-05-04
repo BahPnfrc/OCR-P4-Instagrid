@@ -7,11 +7,14 @@
 
 import UIKit
 
-class SettingViewController: UIView {
+class SettingViewController: UIStackView {
 
-    @IBOutlet weak var firstImage: UIImageView!
-    @IBOutlet weak var secondImage: UIImageView!
-    @IBOutlet weak var thirdImage: UIImageView!
+    @IBOutlet weak var firstPic: UIImageView!
+    @IBOutlet weak var secondPic: UIImageView!
+    @IBOutlet weak var thirdPic: UIImageView!
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondbutton: UIButton!
+    @IBOutlet weak var thirdButton: UIButton!
     
     /*
     // Only override draw() if you perform custom drawing.

@@ -45,43 +45,50 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView" customClass="SwipeViewController" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="30" y="101" width="315" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihE-Tp-zvB" userLabel="SwipeImage">
-                                        <rect key="frame" x="151" y="16" width="13" height="13"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="13" id="rmW-sR-GOE"/>
-                                            <constraint firstAttribute="height" constant="13" id="shr-Xb-mMw"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3X-9j-eby" userLabel="SwipeLabel">
-                                        <rect key="frame" x="136.5" y="34" width="42" height="26"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osD-zK-xRA" userLabel="swipeArrow">
+                                        <rect key="frame" x="125.5" y="0.0" width="64" height="30.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <font key="NSFont" size="26" name="Delm-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3X-9j-eby" userLabel="swipeLabel">
+                                        <rect key="frame" x="125.5" y="34" width="64" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26" id="myA-gJ-IN3"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <font key="NSFont" size="26" name="Delm-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2hA-ge-RE8"/>
-                                    <constraint firstItem="ihE-Tp-zvB" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="top" constant="5" id="7ti-XJ-hFS"/>
                                     <constraint firstAttribute="bottom" secondItem="U3X-9j-eby" secondAttribute="bottom" id="R1m-NR-g9V"/>
+                                    <constraint firstItem="osD-zK-xRA" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="eZe-nT-EE1"/>
                                     <constraint firstAttribute="height" constant="60" id="hse-fc-aVu"/>
                                     <constraint firstItem="U3X-9j-eby" firstAttribute="bottom" secondItem="2wb-Ab-30E" secondAttribute="bottom" id="jUF-DE-ZL9"/>
-                                    <constraint firstItem="ihE-Tp-zvB" firstAttribute="bottom" secondItem="U3X-9j-eby" secondAttribute="top" constant="-5" id="me2-0c-Zx8"/>
-                                    <constraint firstItem="ihE-Tp-zvB" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="vXz-Ms-bh0"/>
                                     <constraint firstItem="U3X-9j-eby" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="wl0-TD-vKW"/>
-                                    <constraint firstItem="ihE-Tp-zvB" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="xz1-gV-lLO"/>
                                     <constraint firstItem="U3X-9j-eby" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="yLF-17-pQM"/>
+                                    <constraint firstItem="osD-zK-xRA" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="top" id="zqA-2X-zmZ"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="2hA-ge-RE8"/>
                                         <exclude reference="R1m-NR-g9V"/>
                                         <exclude reference="wl0-TD-vKW"/>
-                                        <exclude reference="7ti-XJ-hFS"/>
-                                        <exclude reference="vXz-Ms-bh0"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -91,18 +98,14 @@
                                         <exclude reference="jUF-DE-ZL9"/>
                                         <include reference="wl0-TD-vKW"/>
                                         <exclude reference="yLF-17-pQM"/>
-                                        <include reference="7ti-XJ-hFS"/>
-                                        <exclude reference="me2-0c-Zx8"/>
-                                        <include reference="vXz-Ms-bh0"/>
-                                        <exclude reference="xz1-gV-lLO"/>
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="image" destination="ihE-Tp-zvB" id="JMk-zc-boM"/>
-                                    <outlet property="label" destination="U3X-9j-eby" id="kC5-pb-eiQ"/>
+                                    <outlet property="swipeArrow" destination="osD-zK-xRA" id="84g-ll-cYb"/>
+                                    <outlet property="swipeLabel" destination="U3X-9j-eby" id="kC5-pb-eiQ"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bkm-mv-8jF" userLabel="StackView">
@@ -111,10 +114,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="65r-zs-f7R" userLabel="UpRow">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="157.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBr-Fz-pI7" userLabel="MainPic">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBr-Fz-pI7" userLabel="mainPic">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-0E-Gsq" userLabel="SecondPic">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-0E-Gsq" userLabel="secondPic">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -122,10 +125,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-ah-uRA" userLabel="DownRow">
                                                 <rect key="frame" x="0.0" y="157.5" width="315" height="157.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zI-gf-xxt" userLabel="MainPic">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zI-gf-xxt" userLabel="mainPic">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qbj-m0-un4" userLabel="SecondPic">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qbj-m0-un4" userLabel="secondPic">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -141,18 +144,24 @@
                                     <constraint firstAttribute="trailing" secondItem="bkm-mv-8jF" secondAttribute="trailing" id="mQ9-Qv-bFy"/>
                                     <constraint firstAttribute="bottom" secondItem="bkm-mv-8jF" secondAttribute="bottom" id="tad-Ao-uYH"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="downRowMainPic" destination="5zI-gf-xxt" id="iId-3L-OWV"/>
+                                    <outlet property="downRowSecondPic" destination="qbj-m0-un4" id="JFG-N8-vUN"/>
+                                    <outlet property="upRowMainPic" destination="GBr-Fz-pI7" id="cs9-h5-HAy"/>
+                                    <outlet property="upRowSecondPic" destination="NbS-0E-Gsq" id="vsH-ZW-eTU"/>
+                                </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa" userLabel="SettingView" customClass="SettingViewController">
                                 <rect key="frame" x="30" y="538.5" width="315" height="98.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZy-pL-k2y">
                                         <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-AQ-ffW">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-AQ-ffW" userLabel="firstButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <state key="normal" backgroundImage="Layout 1"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-AI-rM6">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-AI-rM6" userLabel="firstPic">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                             </imageView>
                                         </subviews>
@@ -172,11 +181,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-zw-JFY">
                                         <rect key="frame" x="108.5" y="0.0" width="98" height="98.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBn-2I-36r">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBn-2I-36r" userLabel="secondButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
                                                 <state key="normal" title="Button" backgroundImage="Layout 2"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I" userLabel="secondPic">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tzn-b9-o7I" secondAttribute="height" multiplier="1:1" id="ed1-TG-wJz"/>
@@ -198,11 +207,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEl-zg-5zk">
                                         <rect key="frame" x="216.5" y="0.0" width="98.5" height="98.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qih-Gv-onA">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qih-Gv-onA" userLabel="thirdButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <state key="normal" title="Button" backgroundImage="Layout 3"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT" userLabel="thirdPic">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pKR-Te-ZGT" secondAttribute="height" multiplier="1:1" id="VC6-tV-5md"/>
@@ -224,6 +233,14 @@
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
+                                <connections>
+                                    <outlet property="firstButton" destination="Ehd-AQ-ffW" id="wvo-HQ-OyD"/>
+                                    <outlet property="firstPic" destination="AyG-AI-rM6" id="WJB-Xv-TjG"/>
+                                    <outlet property="secondPic" destination="tzn-b9-o7I" id="VDv-lE-xSB"/>
+                                    <outlet property="secondbutton" destination="JBn-2I-36r" id="V8D-x2-ucq"/>
+                                    <outlet property="thirdButton" destination="Qih-Gv-onA" id="1VG-nk-wgu"/>
+                                    <outlet property="thirdPic" destination="pKR-Te-ZGT" id="0zv-PK-nAt"/>
+                                </connections>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
