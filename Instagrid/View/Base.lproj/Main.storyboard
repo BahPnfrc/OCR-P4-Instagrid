@@ -114,23 +114,27 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="65r-zs-f7R" userLabel="UpRow">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="157.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBr-Fz-pI7" userLabel="mainPic">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Y-jM-QtE" userLabel="upRowMainButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-0E-Gsq" userLabel="secondPic">
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLM-wJ-Z5W" userLabel="upRowSecondButton">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
-                                                    </imageView>
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-ah-uRA" userLabel="DownRow">
                                                 <rect key="frame" x="0.0" y="157.5" width="315" height="157.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zI-gf-xxt" userLabel="mainPic">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfd-QY-D3F" userLabel="downRowMainButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qbj-m0-un4" userLabel="secondPic">
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYA-cA-9yE" userLabel="downRowSecondButton">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
-                                                    </imageView>
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -145,10 +149,10 @@
                                     <constraint firstAttribute="bottom" secondItem="bkm-mv-8jF" secondAttribute="bottom" id="tad-Ao-uYH"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="downRowMainPic" destination="5zI-gf-xxt" id="iId-3L-OWV"/>
-                                    <outlet property="downRowSecondPic" destination="qbj-m0-un4" id="JFG-N8-vUN"/>
-                                    <outlet property="upRowMainPic" destination="GBr-Fz-pI7" id="cs9-h5-HAy"/>
-                                    <outlet property="upRowSecondPic" destination="NbS-0E-Gsq" id="vsH-ZW-eTU"/>
+                                    <outlet property="downRowMainButton" destination="xfd-QY-D3F" id="qCV-5i-RU0"/>
+                                    <outlet property="downRowSecondButton" destination="WYA-cA-9yE" id="mfn-aV-7UF"/>
+                                    <outlet property="upRowMainButton" destination="Q2Y-jM-QtE" id="ms1-Ut-Qko"/>
+                                    <outlet property="upRowSecondButton" destination="mLM-wJ-Z5W" id="Gdh-sV-lxI"/>
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa" userLabel="SettingView" customClass="SettingViewController">

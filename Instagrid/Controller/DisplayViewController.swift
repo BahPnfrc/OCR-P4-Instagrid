@@ -9,10 +9,10 @@ import UIKit
 
 class DisplayViewController: UIView {
 
-    @IBOutlet weak var upRowMainPic: UIImageView!
-    @IBOutlet weak var upRowSecondPic: UIImageView!
-    @IBOutlet weak var downRowMainPic: UIImageView!
-    @IBOutlet weak var downRowSecondPic: UIImageView!
+    @IBOutlet weak var upRowMainButton: UIButton!
+    @IBOutlet weak var upRowSecondButton: UIButton!
+    @IBOutlet weak var downRowMainButton: UIButton!
+    @IBOutlet weak var downRowSecondButton: UIButton!
     
     /*
     // Only override draw() if you perform custom drawing.
