@@ -16,26 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="64" y="313" width="300" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="8b8-dE-qA3"/>
-                                    <constraint firstAttribute="height" constant="300" id="NEf-VS-9Ks"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView" customClass="SwipeViewController" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="64" y="238" width="300" height="60"/>
+                                <rect key="frame" x="30" y="204" width="368" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihE-Tp-zvB" userLabel="SwipeImage">
-                                        <rect key="frame" x="143.66666666666666" y="16" width="13" height="13"/>
+                                        <rect key="frame" x="177.66666666666666" y="16" width="13" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="13" id="rmW-sR-GOE"/>
                                             <constraint firstAttribute="height" constant="13" id="shr-Xb-mMw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3X-9j-eby" userLabel="SwipeLabel">
-                                        <rect key="frame" x="129.33333333333334" y="34" width="41.666666666666657" height="26"/>
+                                        <rect key="frame" x="163.33333333333334" y="34" width="41.666666666666657" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26" id="myA-gJ-IN3"/>
                                         </constraints>
@@ -58,7 +50,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-pX-M8l">
-                                <rect key="frame" x="155.66666666666666" y="67" width="116.99999999999997" height="35"/>
+                                <rect key="frame" x="30" y="74" width="368" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Instagrid">
                                         <attributes>
@@ -71,17 +63,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa">
-                                <rect key="frame" x="64" y="767.66666666666663" width="300" height="93.333333333333371"/>
+                                <rect key="frame" x="30" y="746" width="368" height="116"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZy-pL-k2y">
-                                        <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="93.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-AQ-ffW">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                 <state key="normal" backgroundImage="Layout 1"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-AI-rM6">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -98,14 +90,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-zw-JFY">
-                                        <rect key="frame" x="103.33333333333334" y="0.0" width="93.333333333333343" height="93.333333333333329"/>
+                                        <rect key="frame" x="126" y="0.0" width="116" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBn-2I-36r">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tzn-b9-o7I" secondAttribute="height" multiplier="1:1" id="ed1-TG-wJz"/>
                                                 </constraints>
@@ -124,14 +116,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEl-zg-5zk">
-                                        <rect key="frame" x="206.66666666666669" y="0.0" width="93.333333333333314" height="93.333333333333329"/>
+                                        <rect key="frame" x="252" y="0.0" width="116" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qih-Gv-onA">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pKR-Te-ZGT" secondAttribute="height" multiplier="1:1" id="VC6-tV-5md"/>
                                                 </constraints>
@@ -150,20 +142,31 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="30" y="279" width="368" height="368"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="height" multiplier="1:1" id="Xnn-Gt-4hf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71764707569999997" green="0.84313726430000002" blue="0.89803922179999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="2wb-Ab-30E" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2CC-I8-c40"/>
-                            <constraint firstItem="KGI-pX-M8l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="23" id="7cU-9y-6qQ"/>
+                            <constraint firstItem="KGI-pX-M8l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="7cU-9y-6qQ"/>
+                            <constraint firstItem="KGI-pX-M8l" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="Az5-uP-OMu"/>
+                            <constraint firstItem="KGI-pX-M8l" firstAttribute="centerX" secondItem="VBM-LC-5eS" secondAttribute="centerX" id="RPB-gd-fC6"/>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="centerX" secondItem="VBM-LC-5eS" secondAttribute="centerX" id="S3i-If-jQY"/>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="Vuf-Dw-68S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VBM-LC-5eS" secondAttribute="trailing" constant="30" id="Vwy-7z-i1n"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xru-lb-lDG"/>
-                            <constraint firstItem="2wb-Ab-30E" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="YJ1-hC-Hah"/>
+                            <constraint firstItem="VBM-LC-5eS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="ceI-rv-WVe"/>
                             <constraint firstItem="4S4-CU-BZa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dIh-nL-oBn"/>
-                            <constraint firstItem="KGI-pX-M8l" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hXH-3y-xcB"/>
                             <constraint firstItem="4S4-CU-BZa" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="iHe-gE-tsE"/>
-                            <constraint firstItem="4S4-CU-BZa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-31" id="ib8-B7-rgN"/>
-                            <constraint firstItem="VBM-LC-5eS" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="bottom" constant="15" id="onN-DU-Pe3"/>
+                            <constraint firstItem="4S4-CU-BZa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="ib8-B7-rgN"/>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="bottom" secondItem="VBM-LC-5eS" secondAttribute="top" constant="-15" id="onN-DU-Pe3"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uIE-Cl-it1"/>
                         </constraints>
                     </view>
