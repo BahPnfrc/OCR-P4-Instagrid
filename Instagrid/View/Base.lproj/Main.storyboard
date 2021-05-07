@@ -100,10 +100,6 @@
                                         <exclude reference="yLF-17-pQM"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <outlet property="swipeArrow" destination="osD-zK-xRA" id="84g-ll-cYb"/>
-                                    <outlet property="swipeLabel" destination="U3X-9j-eby" id="kC5-pb-eiQ"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
@@ -148,12 +144,6 @@
                                     <constraint firstAttribute="trailing" secondItem="bkm-mv-8jF" secondAttribute="trailing" id="mQ9-Qv-bFy"/>
                                     <constraint firstAttribute="bottom" secondItem="bkm-mv-8jF" secondAttribute="bottom" id="tad-Ao-uYH"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="downRowMainButton" destination="xfd-QY-D3F" id="qCV-5i-RU0"/>
-                                    <outlet property="downRowSecondButton" destination="WYA-cA-9yE" id="mfn-aV-7UF"/>
-                                    <outlet property="upRowMainButton" destination="Q2Y-jM-QtE" id="ms1-Ut-Qko"/>
-                                    <outlet property="upRowSecondButton" destination="mLM-wJ-Z5W" id="Gdh-sV-lxI"/>
-                                </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa" userLabel="SettingView" customClass="SettingViewController">
                                 <rect key="frame" x="30" y="538.5" width="315" height="98.5"/>
@@ -164,6 +154,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-AQ-ffW" userLabel="firstButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <state key="normal" backgroundImage="Layout 1"/>
+                                                <connections>
+                                                    <action selector="didTypeFirstButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d6c-gr-exn"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-AI-rM6" userLabel="firstPic">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
@@ -188,6 +181,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBn-2I-36r" userLabel="secondButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
                                                 <state key="normal" title="Button" backgroundImage="Layout 2"/>
+                                                <connections>
+                                                    <action selector="didTypeSecondButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j41-id-f8g"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I" userLabel="secondPic">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
@@ -214,6 +210,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qih-Gv-onA" userLabel="thirdButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <state key="normal" title="Button" backgroundImage="Layout 3"/>
+                                                <connections>
+                                                    <action selector="didTypeThirdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FgO-BN-Qkd"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT" userLabel="thirdPic">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
@@ -237,14 +236,6 @@
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
-                                <connections>
-                                    <outlet property="firstButton" destination="Ehd-AQ-ffW" id="wvo-HQ-OyD"/>
-                                    <outlet property="firstPic" destination="AyG-AI-rM6" id="WJB-Xv-TjG"/>
-                                    <outlet property="secondPic" destination="tzn-b9-o7I" id="VDv-lE-xSB"/>
-                                    <outlet property="secondbutton" destination="JBn-2I-36r" id="V8D-x2-ucq"/>
-                                    <outlet property="thirdButton" destination="Qih-Gv-onA" id="1VG-nk-wgu"/>
-                                    <outlet property="thirdPic" destination="pKR-Te-ZGT" id="0zv-PK-nAt"/>
-                                </connections>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -327,6 +318,20 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="downRowMainButton" destination="xfd-QY-D3F" id="7Xa-2s-Ub6"/>
+                        <outlet property="downRowSecondButton" destination="WYA-cA-9yE" id="z3T-bI-H9b"/>
+                        <outlet property="firstButton" destination="Ehd-AQ-ffW" id="sCb-Zr-6YD"/>
+                        <outlet property="firstPic" destination="AyG-AI-rM6" id="6ke-1K-rPk"/>
+                        <outlet property="secondPic" destination="tzn-b9-o7I" id="mRd-1p-oT3"/>
+                        <outlet property="secondbutton" destination="JBn-2I-36r" id="Mbu-A7-n8y"/>
+                        <outlet property="swipeArrow" destination="osD-zK-xRA" id="nk3-B1-5p3"/>
+                        <outlet property="swipeLabel" destination="U3X-9j-eby" id="TED-Dx-JxX"/>
+                        <outlet property="thirdButton" destination="Qih-Gv-onA" id="Rdl-B6-eMR"/>
+                        <outlet property="thirdPic" destination="pKR-Te-ZGT" id="nmP-Jg-uXe"/>
+                        <outlet property="upRowMainButton" destination="Q2Y-jM-QtE" id="07v-qo-rsX"/>
+                        <outlet property="upRowSecondButton" destination="mLM-wJ-Z5W" id="HrV-lw-QMS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
