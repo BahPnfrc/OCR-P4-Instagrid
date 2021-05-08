@@ -14,9 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeArrow: UILabel!
     @IBOutlet weak var swipeLabel: UILabel!
     
+    @IBOutlet weak var upRowMainView: UIView!
+    @IBOutlet weak var upRowSecondView: UIView!
+    @IBOutlet weak var downRowMainView: UIView!
+    @IBOutlet weak var downRowSecondView: UIView!
+    
+    @IBOutlet weak var upRowMainPic: UIImageView!
     @IBOutlet weak var upRowMainButton: UIButton!
+    @IBOutlet weak var upRowSecondPic: UIImageView!
     @IBOutlet weak var upRowSecondButton: UIButton!
+    @IBOutlet weak var downRowMainPic: UIImageView!
     @IBOutlet weak var downRowMainButton: UIButton!
+    @IBOutlet weak var downRowSecondPic: UIImageView!
     @IBOutlet weak var downRowSecondButton: UIButton!
     
     @IBOutlet weak var firstPic: UIImageView!
@@ -27,10 +36,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdButton: UIButton!
     
     // MARK: Properties
-
+    
+    enum Orientation { case isPortrait, isLandscape }
     enum Setting { case first, second, third }
     enum Frame { case first, second, third }
 
+    var currentOrientation: Orientation {
+        return UIDevice.current.orientation.isPortrait ? .isPortrait : .isLandscape
+    }
+    
     var currentSetting: Setting = .first {
         didSet { _didSetCurrentSetting() }
     }
@@ -43,7 +57,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _setDefaultButtons()
+        _setPortrait()
         _firstSetting()
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        _setSwipeOrientation()
     }
     
     private func _setDefaultButtons() {
@@ -55,6 +74,13 @@ class ViewController: UIViewController {
             button?.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
         }
     }
+    
+    private func _setSwipeOrientation() {
+        if currentOrientation == .isPortrait {
+            _setPortrait()
+        } else { _setLandscape() }
+    }
+    
     
     // MARK: Actions
     
@@ -80,9 +106,9 @@ class ViewController: UIViewController {
     }
     
     private func _didSetCurrentFrame() {
-        let buttons: [UIButton?] =
-            [upRowMainButton, upRowSecondButton,
-            downRowMainButton, downRowSecondButton]
+        let views: [UIView?] =
+            [upRowMainView, upRowSecondView,
+             downRowMainView, downRowSecondView]
         var isHiddenValue = [Bool]()
         switch currentFrame {
         case .first:
@@ -92,11 +118,11 @@ class ViewController: UIViewController {
         case .third:
             isHiddenValue = [false, false, false, false]
         }
-        guard buttons.count == isHiddenValue.count else {
+        guard views.count == isHiddenValue.count else {
             fatalError("Guard check failed")
         }
-        for index in 0...buttons.count - 1 {
-            buttons[index]?.isHidden = isHiddenValue[index]
+        for index in 0...views.count - 1 {
+            views[index]?.isHidden = isHiddenValue[index]
         }
     }
     
@@ -122,6 +148,15 @@ class ViewController: UIViewController {
         thirdPic.isHidden = false
         thirdPic.image = #imageLiteral(resourceName: "Selected")
         currentFrame = .third
+    }
+    
+    private func _setPortrait() {
+        (swipeArrow.text, swipeLabel.text) = ("<", "Swipe up to share")
+        swipeArrow.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+    }
+    private func _setLandscape() {
+        (swipeArrow.text, swipeLabel.text) = ("<", "Swipe left to share")
+        swipeArrow.transform = CGAffineTransform(rotationAngle: 0)
     }
     
 }

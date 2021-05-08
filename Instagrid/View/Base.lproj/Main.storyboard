@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="35" id="6bm-HK-Rjb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
-                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -39,10 +39,15 @@
                                 <rect key="frame" x="30" y="101" width="315" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osD-zK-xRA" userLabel="swipeArrow">
-                                        <rect key="frame" x="125.5" y="0.0" width="64" height="30.5"/>
+                                        <rect key="frame" x="142.5" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="osD-zK-xRA" secondAttribute="height" multiplier="1:1" id="6SV-GH-ESw"/>
+                                            <constraint firstAttribute="width" constant="30" id="Otg-j5-p4F"/>
+                                        </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <font key="NSFont" size="26" name="Delm-Medium"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -58,6 +63,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <font key="NSFont" size="26" name="Delm-Medium"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -66,7 +72,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2hA-ge-RE8"/>
                                     <constraint firstAttribute="bottom" secondItem="U3X-9j-eby" secondAttribute="bottom" id="R1m-NR-g9V"/>
@@ -103,27 +108,107 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="65r-zs-f7R" userLabel="UpRow">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="157.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Y-jM-QtE" userLabel="upRowMainButton">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4u-2k-3PM" userLabel="UpRowMainView">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLM-wJ-Z5W" userLabel="upRowSecondButton">
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="9NP-ZF-FP7" userLabel="upRowMainPic">
+                                                                <rect key="frame" x="59" y="59" width="40" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="9NP-ZF-FP7" secondAttribute="height" multiplier="1:1" id="9AY-78-k7e"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="9lT-4D-QXI"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Y-jM-QtE" userLabel="upRowMainButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Q2Y-jM-QtE" firstAttribute="centerX" secondItem="H4u-2k-3PM" secondAttribute="centerX" id="E1L-Ks-23I"/>
+                                                            <constraint firstItem="9NP-ZF-FP7" firstAttribute="centerY" secondItem="H4u-2k-3PM" secondAttribute="centerY" id="UIO-SP-Fp9"/>
+                                                            <constraint firstItem="Q2Y-jM-QtE" firstAttribute="width" secondItem="H4u-2k-3PM" secondAttribute="width" id="ZCN-Ki-kBb"/>
+                                                            <constraint firstItem="Q2Y-jM-QtE" firstAttribute="centerY" secondItem="H4u-2k-3PM" secondAttribute="centerY" id="gTU-UU-ZUj"/>
+                                                            <constraint firstItem="9NP-ZF-FP7" firstAttribute="centerX" secondItem="H4u-2k-3PM" secondAttribute="centerX" id="jH1-ks-nVn"/>
+                                                            <constraint firstItem="Q2Y-jM-QtE" firstAttribute="height" secondItem="H4u-2k-3PM" secondAttribute="height" id="rcj-e4-EJb"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBQ-EV-1Ko" userLabel="UpRowSecondView">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="Ieu-sO-Z2A" userLabel="upRowSecondPic">
+                                                                <rect key="frame" x="59" y="59" width="40" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Ieu-sO-Z2A" secondAttribute="height" multiplier="1:1" id="PMe-8m-eGT"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="fTl-CP-iGB"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLM-wJ-Z5W" userLabel="upRowSecondButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Ieu-sO-Z2A" firstAttribute="centerX" secondItem="iBQ-EV-1Ko" secondAttribute="centerX" id="AOT-ox-T6l"/>
+                                                            <constraint firstItem="mLM-wJ-Z5W" firstAttribute="centerX" secondItem="iBQ-EV-1Ko" secondAttribute="centerX" id="Cm8-C6-M1X"/>
+                                                            <constraint firstItem="mLM-wJ-Z5W" firstAttribute="centerY" secondItem="iBQ-EV-1Ko" secondAttribute="centerY" id="V3k-4W-0o0"/>
+                                                            <constraint firstItem="Ieu-sO-Z2A" firstAttribute="centerY" secondItem="iBQ-EV-1Ko" secondAttribute="centerY" id="ehs-cA-w9c"/>
+                                                            <constraint firstItem="mLM-wJ-Z5W" firstAttribute="height" secondItem="iBQ-EV-1Ko" secondAttribute="height" id="lVZ-B9-t49"/>
+                                                            <constraint firstItem="mLM-wJ-Z5W" firstAttribute="width" secondItem="iBQ-EV-1Ko" secondAttribute="width" id="ysV-fd-6ox"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-ah-uRA" userLabel="DownRow">
                                                 <rect key="frame" x="0.0" y="157.5" width="315" height="157.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfd-QY-D3F" userLabel="downRowMainButton">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-FO-XiJ" userLabel="DownRowMainView">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYA-cA-9yE" userLabel="downRowSecondButton">
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-Rd-bZQ" userLabel="downRowMainPic">
+                                                                <rect key="frame" x="59" y="59" width="40" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="cwu-Xt-jEc"/>
+                                                                    <constraint firstAttribute="width" secondItem="KAG-Rd-bZQ" secondAttribute="height" multiplier="1:1" id="svi-Qf-hjc"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfd-QY-D3F" userLabel="downRowMainButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="KAG-Rd-bZQ" firstAttribute="centerX" secondItem="4yw-FO-XiJ" secondAttribute="centerX" id="4Kv-OI-lLC"/>
+                                                            <constraint firstItem="xfd-QY-D3F" firstAttribute="centerX" secondItem="4yw-FO-XiJ" secondAttribute="centerX" id="E9K-iU-sht"/>
+                                                            <constraint firstItem="xfd-QY-D3F" firstAttribute="height" secondItem="4yw-FO-XiJ" secondAttribute="height" id="fVB-NJ-bwi"/>
+                                                            <constraint firstItem="xfd-QY-D3F" firstAttribute="centerY" secondItem="4yw-FO-XiJ" secondAttribute="centerY" id="gn1-jg-DDa"/>
+                                                            <constraint firstItem="KAG-Rd-bZQ" firstAttribute="centerY" secondItem="4yw-FO-XiJ" secondAttribute="centerY" id="nXe-An-wVG"/>
+                                                            <constraint firstItem="xfd-QY-D3F" firstAttribute="width" secondItem="4yw-FO-XiJ" secondAttribute="width" id="tby-Gv-Rnc"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIa-yq-ms0" userLabel="DownRowSecondView">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-mO-G8D" userLabel="downRowSecondPic">
+                                                                <rect key="frame" x="59" y="59" width="40" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="TLn-A7-tGP"/>
+                                                                    <constraint firstAttribute="width" secondItem="5qG-mO-G8D" secondAttribute="height" multiplier="1:1" id="lDE-kU-CRi"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYA-cA-9yE" userLabel="downRowSecondButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="WYA-cA-9yE" firstAttribute="centerY" secondItem="WIa-yq-ms0" secondAttribute="centerY" id="JlM-bX-i0f"/>
+                                                            <constraint firstItem="5qG-mO-G8D" firstAttribute="centerX" secondItem="WIa-yq-ms0" secondAttribute="centerX" id="Opb-WW-WnR"/>
+                                                            <constraint firstItem="WYA-cA-9yE" firstAttribute="height" secondItem="WIa-yq-ms0" secondAttribute="height" id="hdl-zm-g80"/>
+                                                            <constraint firstItem="WYA-cA-9yE" firstAttribute="centerX" secondItem="WIa-yq-ms0" secondAttribute="centerX" id="jTr-4H-Bg4"/>
+                                                            <constraint firstItem="5qG-mO-G8D" firstAttribute="centerY" secondItem="WIa-yq-ms0" secondAttribute="centerY" id="nuA-cP-iD5"/>
+                                                            <constraint firstItem="WYA-cA-9yE" firstAttribute="width" secondItem="WIa-yq-ms0" secondAttribute="width" id="tEV-Fb-xat"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -173,7 +258,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBn-2I-36r" userLabel="secondButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
-                                                <state key="normal" title="Button" backgroundImage="Layout 2"/>
+                                                <state key="normal" backgroundImage="Layout 2"/>
                                                 <connections>
                                                     <action selector="didCallSecondButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j41-id-f8g"/>
                                                 </connections>
@@ -202,7 +287,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qih-Gv-onA" userLabel="thirdButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
-                                                <state key="normal" title="Button" backgroundImage="Layout 3"/>
+                                                <state key="normal" backgroundImage="Layout 3"/>
                                                 <connections>
                                                     <action selector="didCallThirdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FgO-BN-Qkd"/>
                                                 </connections>
@@ -313,7 +398,11 @@
                     </view>
                     <connections>
                         <outlet property="downRowMainButton" destination="xfd-QY-D3F" id="7Xa-2s-Ub6"/>
+                        <outlet property="downRowMainPic" destination="KAG-Rd-bZQ" id="M34-JV-Uth"/>
+                        <outlet property="downRowMainView" destination="4yw-FO-XiJ" id="Fuv-wt-9Kw"/>
                         <outlet property="downRowSecondButton" destination="WYA-cA-9yE" id="z3T-bI-H9b"/>
+                        <outlet property="downRowSecondPic" destination="5qG-mO-G8D" id="YYp-gX-nNX"/>
+                        <outlet property="downRowSecondView" destination="WIa-yq-ms0" id="7Dn-3D-XYU"/>
                         <outlet property="firstButton" destination="Ehd-AQ-ffW" id="sCb-Zr-6YD"/>
                         <outlet property="firstPic" destination="AyG-AI-rM6" id="6ke-1K-rPk"/>
                         <outlet property="secondPic" destination="tzn-b9-o7I" id="mRd-1p-oT3"/>
@@ -323,7 +412,11 @@
                         <outlet property="thirdButton" destination="Qih-Gv-onA" id="Rdl-B6-eMR"/>
                         <outlet property="thirdPic" destination="pKR-Te-ZGT" id="nmP-Jg-uXe"/>
                         <outlet property="upRowMainButton" destination="Q2Y-jM-QtE" id="07v-qo-rsX"/>
+                        <outlet property="upRowMainPic" destination="9NP-ZF-FP7" id="xod-6D-b6B"/>
+                        <outlet property="upRowMainView" destination="H4u-2k-3PM" id="jsY-LF-a68"/>
                         <outlet property="upRowSecondButton" destination="mLM-wJ-Z5W" id="HrV-lw-QMS"/>
+                        <outlet property="upRowSecondPic" destination="Ieu-sO-Z2A" id="smB-g8-Yd4"/>
+                        <outlet property="upRowSecondView" destination="iBQ-EV-1Ko" id="LX8-rJ-bdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -335,6 +428,7 @@
         <image name="Layout 1" width="27" height="27"/>
         <image name="Layout 2" width="27" height="27"/>
         <image name="Layout 3" width="27" height="27"/>
+        <image name="Plus" width="13.5" height="13.5"/>
         <image name="Selected" width="27" height="27"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
