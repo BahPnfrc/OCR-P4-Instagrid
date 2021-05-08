@@ -16,20 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-pX-M8l">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-pX-M8l">
                                 <rect key="frame" x="30" y="30" width="315" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="6bm-HK-Rjb"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Instagrid">
-                                        <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="30" name="ThirstySoftRegular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -155,7 +148,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <state key="normal" backgroundImage="Layout 1"/>
                                                 <connections>
-                                                    <action selector="didTypeFirstButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d6c-gr-exn"/>
+                                                    <action selector="didCallFirstButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d6c-gr-exn"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-AI-rM6" userLabel="firstPic">
@@ -182,7 +175,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
                                                 <state key="normal" title="Button" backgroundImage="Layout 2"/>
                                                 <connections>
-                                                    <action selector="didTypeSecondButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j41-id-f8g"/>
+                                                    <action selector="didCallSecondButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j41-id-f8g"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I" userLabel="secondPic">
@@ -211,7 +204,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <state key="normal" title="Button" backgroundImage="Layout 3"/>
                                                 <connections>
-                                                    <action selector="didTypeThirdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FgO-BN-Qkd"/>
+                                                    <action selector="didCallThirdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FgO-BN-Qkd"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT" userLabel="thirdPic">

@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //MARK: IBOulets
+    //MARK: Oulets
     
     @IBOutlet weak var swipeArrow: UILabel!
     @IBOutlet weak var swipeLabel: UILabel!
@@ -26,88 +26,102 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdPic: UIImageView!
     @IBOutlet weak var thirdButton: UIButton!
     
-    //MARK: IBActions
-    
-    @IBAction func didTypeFirstButton(_ sender: Any) {
-        currentSetting = .first
-    }
-    @IBAction func didTypeSecondButton(_ sender: Any) {
-        currentSetting = .second
-    }
-    @IBAction func didTypeThirdButton(_ sender: Any) {
-        currentSetting = .third
-    }
-    
-    //MARK: Properties
+    // MARK: Properties
 
-    enum Setting {case first, second, third}
-    enum FrameType { case first, second, third }
-    
+    enum Setting { case first, second, third }
+    enum Frame { case first, second, third }
+
     var currentSetting: Setting = .first {
-        didSet {
-            resetSetting()
-            switch currentSetting {
-            case .first: firstSetting()
-            case .second: secondSetting()
-            case .third: thirdSetting()
-            }
-        }
+        didSet { _didSetCurrentSetting() }
+    }
+    var currentFrame: Frame = .first {
+        didSet { _didSetCurrentFrame() }
     }
     
-    var currentFrameType: FrameType = .first {
-        didSet {
-            let buttons =
-                [upRowMainButton, upRowSecondButton,
-                downRowMainButton, downRowSecondButton]
-            var isHidden = [Bool]()
-            switch currentFrameType {
-            case .first:
-                isHidden = [false, true, false, false]
-            case .second:
-                isHidden = [false, false, false, true]
-            case .third:
-                isHidden = [false, false, false, false]
-            }
-            for index in 0...3 {
-                buttons[index]!.isHidden = isHidden[index]
-            }
-        }
-    }
+    // MARK: Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDefaultButtons()
-        firstSetting()
+        _setDefaultButtons()
+        _firstSetting()
     }
     
-    private func setDefaultButtons() {
-        let buttons: [UIButton] = [upRowMainButton, upRowSecondButton, downRowMainButton, downRowSecondButton]
+    private func _setDefaultButtons() {
+        let buttons: [UIButton?] =
+            [upRowMainButton, upRowSecondButton,
+             downRowMainButton, downRowSecondButton]
         for button in buttons {
-            button.layer.borderWidth = 10
-            button.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
+            button?.layer.borderWidth = 10
+            button?.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
         }
     }
     
-    private func resetSetting() {
-        let pics: [UIImageView] = [firstPic, secondPic, thirdPic]
-        for pic in pics {
-            pic.isHidden = true
+    // MARK: Actions
+    
+    @IBAction func didCallFirstButton(_ sender: Any) {
+        currentSetting = .first
+    }
+    @IBAction func didCallSecondButton(_ sender: Any) {
+        currentSetting = .second
+    }
+    @IBAction func didCallThirdButton(_ sender: Any) {
+        currentSetting = .third
+    }
+    
+    // MARK: Main functions
+    
+    private func _didSetCurrentSetting() {
+        _resetSetting()
+        switch currentSetting {
+        case .first: _firstSetting()
+        case .second: _secondSetting()
+        case .third: _thirdSetting()
         }
     }
-    private func firstSetting () {
+    
+    private func _didSetCurrentFrame() {
+        let buttons: [UIButton?] =
+            [upRowMainButton, upRowSecondButton,
+            downRowMainButton, downRowSecondButton]
+        var isHiddenValue = [Bool]()
+        switch currentFrame {
+        case .first:
+            isHiddenValue = [false, true, false, false]
+        case .second:
+            isHiddenValue = [false, false, false, true]
+        case .third:
+            isHiddenValue = [false, false, false, false]
+        }
+        guard buttons.count == isHiddenValue.count else {
+            fatalError("Guard check failed")
+        }
+        for index in 0...buttons.count - 1 {
+            buttons[index]?.isHidden = isHiddenValue[index]
+        }
+    }
+    
+    // MARK: Sub functions
+    
+    private func _resetSetting() {
+        let pics: [UIImageView?] = [firstPic, secondPic, thirdPic]
+        for pic in pics {
+            pic?.isHidden = true
+        }
+    }
+    private func _firstSetting () {
         firstPic.isHidden = false
         firstPic.image = #imageLiteral(resourceName: "Selected")
-        currentFrameType = .first
+        currentFrame = .first
     }
-    private func secondSetting () {
+    private func _secondSetting () {
         secondPic.isHidden = false
         secondPic.image = #imageLiteral(resourceName: "Selected")
-        currentFrameType = .second
+        currentFrame = .second
     }
-    private func thirdSetting () {
+    private func _thirdSetting () {
         thirdPic.isHidden = false
         thirdPic.image = #imageLiteral(resourceName: "Selected")
-        currentFrameType = .third
+        currentFrame = .third
     }
     
 }
