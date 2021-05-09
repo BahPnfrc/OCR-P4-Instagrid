@@ -35,17 +35,17 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView" customClass="SwipeViewController" customModule="Instagrid" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView">
                                 <rect key="frame" x="30" y="101" width="315" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osD-zK-xRA" userLabel="swipeArrow">
-                                        <rect key="frame" x="142.5" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="144.5" y="0.0" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="osD-zK-xRA" secondAttribute="height" multiplier="1:1" id="6SV-GH-ESw"/>
-                                            <constraint firstAttribute="width" constant="30" id="Otg-j5-p4F"/>
+                                            <constraint firstAttribute="width" constant="26" id="Otg-j5-p4F"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="Label">
+                                            <fragment content="&lt;">
                                                 <attributes>
                                                     <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <font key="NSFont" size="26" name="Delm-Medium"/>
@@ -99,7 +99,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView" customClass="DisplayViewController">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bkm-mv-8jF" userLabel="StackView">
@@ -223,7 +223,7 @@
                                     <constraint firstAttribute="bottom" secondItem="bkm-mv-8jF" secondAttribute="bottom" id="tad-Ao-uYH"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa" userLabel="SettingView" customClass="SettingViewController">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-CU-BZa" userLabel="SettingView">
                                 <rect key="frame" x="30" y="538.5" width="315" height="98.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZy-pL-k2y">

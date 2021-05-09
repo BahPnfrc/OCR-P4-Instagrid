@@ -44,7 +44,6 @@ class ViewController: UIViewController {
     var currentOrientation: Orientation {
         return UIDevice.current.orientation.isPortrait ? .isPortrait : .isLandscape
     }
-    
     var currentSetting: Setting = .first {
         didSet { _didSetCurrentSetting() }
     }
@@ -56,6 +55,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _addSwipeGesture()
         _setDefaultButtons()
         _setPortrait()
         _firstSetting()
@@ -75,13 +75,6 @@ class ViewController: UIViewController {
         }
     }
     
-    private func _setSwipeOrientation() {
-        if currentOrientation == .isPortrait {
-            _setPortrait()
-        } else { _setLandscape() }
-    }
-    
-    
     // MARK: Actions
     
     @IBAction func didCallFirstButton(_ sender: Any) {
@@ -94,16 +87,7 @@ class ViewController: UIViewController {
         currentSetting = .third
     }
     
-    // MARK: Main functions
-    
-    private func _didSetCurrentSetting() {
-        _resetSetting()
-        switch currentSetting {
-        case .first: _firstSetting()
-        case .second: _secondSetting()
-        case .third: _thirdSetting()
-        }
-    }
+    // MARK: Frame functions
     
     private func _didSetCurrentFrame() {
         let views: [UIView?] =
@@ -126,8 +110,16 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: Sub functions
+    // MARK: Settings functions
     
+    private func _didSetCurrentSetting() {
+        _resetSetting()
+        switch currentSetting {
+        case .first: _firstSetting()
+        case .second: _secondSetting()
+        case .third: _thirdSetting()
+        }
+    }
     private func _resetSetting() {
         let pics: [UIImageView?] = [firstPic, secondPic, thirdPic]
         for pic in pics {
@@ -150,6 +142,13 @@ class ViewController: UIViewController {
         currentFrame = .third
     }
     
+    // MARK: Orientation functions
+    
+    private func _setSwipeOrientation() {
+        if currentOrientation == .isPortrait {
+            _setPortrait()
+        } else { _setLandscape() }
+    }
     private func _setPortrait() {
         (swipeArrow.text, swipeLabel.text) = ("<", "Swipe up to share")
         swipeArrow.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
@@ -157,6 +156,26 @@ class ViewController: UIViewController {
     private func _setLandscape() {
         (swipeArrow.text, swipeLabel.text) = ("<", "Swipe left to share")
         swipeArrow.transform = CGAffineTransform(rotationAngle: 0)
+    }
+    
+    // MARK: Gesture functions
+    
+    private func _addSwipeGesture() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(_performSwipe))
+        swipeUp.direction = .up
+        view.addGestureRecognizer(swipeUp)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(_performSwipe))
+        swipeLeft.direction = .left
+        view.addGestureRecognizer(swipeLeft)
+    }
+    
+    @objc func _performSwipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .up {
+            print("User did swipe UP")
+        } else if sender.direction == .left {
+            print("User did swipe LEFT")
+        }
     }
     
 }
