@@ -186,7 +186,7 @@ class ViewController: UIViewController {
             self.displayView.transform = CGAffineTransform(translationX: factor.x, y: factor.y)
         } completion: { (completed) in
             if completed {
-                // self.export()
+                _ = self.export()
                 UIView.animate(withDuration: 0.5) {
                     self.displayView.transform = .identity
                 }
@@ -194,13 +194,16 @@ class ViewController: UIViewController {
         }
     }
     
-    private func export() {
-        let renderer = UIGraphicsImageRenderer(size: displayView.bounds.size)
+    private func export() -> Bool {
+        guard let export = self.displayView else { return false }
+        let renderer = UIGraphicsImageRenderer(size: export.bounds.size)
         let image = renderer.image { ctx in
-            displayView.drawHierarchy(in: displayView.bounds, afterScreenUpdates: true)
+            export.drawHierarchy(in: export.bounds, afterScreenUpdates: true)
         }
-        let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let items: [Any] = [image]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
+        return true
     }
 
 }
