@@ -11,6 +11,10 @@ class ViewController: UIViewController {
     
     //MARK: Oulets
     
+    @IBOutlet weak var instagridLabel: UILabel!
+    @IBOutlet weak var swipeView: UIView!
+    @IBOutlet weak var displayView: UIView!
+    
     @IBOutlet weak var swipeArrow: UILabel!
     @IBOutlet weak var swipeLabel: UILabel!
     
@@ -37,7 +41,7 @@ class ViewController: UIViewController {
     
     // MARK: Properties
     
-    enum Orientation { case isPortrait, isLandscape }
+    enum Orientation: CaseIterable { case isPortrait, isLandscape }
     enum Setting { case first, second, third }
     enum Frame { case first, second, third }
 
@@ -45,27 +49,17 @@ class ViewController: UIViewController {
         return UIDevice.current.orientation.isPortrait ? .isPortrait : .isLandscape
     }
     var currentSetting: Setting = .first {
-        didSet { _didSetCurrentSetting() }
+        didSet { didSetCurrentSetting() }
     }
     var currentFrame: Frame = .first {
-        didSet { _didSetCurrentFrame() }
+        didSet { didSetCurrentFrame() }
     }
     
     // MARK: Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _addSwipeGesture()
-        _setDefaultButtons()
-        _setPortrait()
-        _firstSetting()
-    }
-    
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        _setSwipeOrientation()
-    }
-    
-    private func _setDefaultButtons() {
+        
         let buttons: [UIButton?] =
             [upRowMainButton, upRowSecondButton,
              downRowMainButton, downRowSecondButton]
@@ -73,6 +67,19 @@ class ViewController: UIViewController {
             button?.layer.borderWidth = 10
             button?.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
         }
+        
+        addSwipeGesture()
+        //_setPortrait()
+        _firstSetting()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setSwipeOrientation()
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        setSwipeOrientation()
     }
     
     // MARK: Actions
@@ -89,7 +96,7 @@ class ViewController: UIViewController {
     
     // MARK: Frame functions
     
-    private func _didSetCurrentFrame() {
+    private func didSetCurrentFrame() {
         let views: [UIView?] =
             [upRowMainView, upRowSecondView,
              downRowMainView, downRowSecondView]
@@ -112,7 +119,7 @@ class ViewController: UIViewController {
     
     // MARK: Settings functions
     
-    private func _didSetCurrentSetting() {
+    func didSetCurrentSetting() {
         _resetSetting()
         switch currentSetting {
         case .first: _firstSetting()
@@ -122,9 +129,7 @@ class ViewController: UIViewController {
     }
     private func _resetSetting() {
         let pics: [UIImageView?] = [firstPic, secondPic, thirdPic]
-        for pic in pics {
-            pic?.isHidden = true
-        }
+        for pic in pics { pic?.isHidden = true }
     }
     private func _firstSetting () {
         firstPic.isHidden = false
@@ -144,7 +149,7 @@ class ViewController: UIViewController {
     
     // MARK: Orientation functions
     
-    private func _setSwipeOrientation() {
+    func setSwipeOrientation() {
         if currentOrientation == .isPortrait {
             _setPortrait()
         } else { _setLandscape() }
@@ -160,23 +165,43 @@ class ViewController: UIViewController {
     
     // MARK: Gesture functions
     
-    private func _addSwipeGesture() {
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(_performSwipe))
+    func addSwipeGesture() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(performSwipe))
         swipeUp.direction = .up
         view.addGestureRecognizer(swipeUp)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(_performSwipe))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(performSwipe))
         swipeLeft.direction = .left
         view.addGestureRecognizer(swipeLeft)
     }
     
-    @objc func _performSwipe(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .up {
-            print("User did swipe UP")
-        } else if sender.direction == .left {
-            print("User did swipe LEFT")
+    @objc func performSwipe(_ sender: UISwipeGestureRecognizer) {
+        var factor: (x: CGFloat, y: CGFloat)
+        switch (currentOrientation, sender.state, sender.direction) {
+        case (.isPortrait, .ended, .up): factor = (0, 0 - UIScreen.main.bounds.height)
+        case (.isLandscape, .ended, .left): factor = (0 - UIScreen.main.bounds.width, 0)
+        default: return
+        }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.displayView.transform = CGAffineTransform(translationX: factor.x, y: factor.y)
+        } completion: { (completed) in
+            if completed {
+                // self.export()
+                UIView.animate(withDuration: 0.5) {
+                    self.displayView.transform = .identity
+                }
+            }
         }
     }
     
+    private func export() {
+        let renderer = UIGraphicsImageRenderer(size: displayView.bounds.size)
+        let image = renderer.image { ctx in
+            displayView.drawHierarchy(in: displayView.bounds, afterScreenUpdates: true)
+        }
+        let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(ac, animated: true)
+    }
+
 }
 

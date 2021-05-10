@@ -397,6 +397,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="displayView" destination="VBM-LC-5eS" id="XXw-KJ-wNG"/>
                         <outlet property="downRowMainButton" destination="xfd-QY-D3F" id="7Xa-2s-Ub6"/>
                         <outlet property="downRowMainPic" destination="KAG-Rd-bZQ" id="M34-JV-Uth"/>
                         <outlet property="downRowMainView" destination="4yw-FO-XiJ" id="Fuv-wt-9Kw"/>
@@ -405,10 +406,12 @@
                         <outlet property="downRowSecondView" destination="WIa-yq-ms0" id="7Dn-3D-XYU"/>
                         <outlet property="firstButton" destination="Ehd-AQ-ffW" id="sCb-Zr-6YD"/>
                         <outlet property="firstPic" destination="AyG-AI-rM6" id="6ke-1K-rPk"/>
+                        <outlet property="instagridLabel" destination="KGI-pX-M8l" id="Jhc-eB-OG8"/>
                         <outlet property="secondPic" destination="tzn-b9-o7I" id="mRd-1p-oT3"/>
                         <outlet property="secondbutton" destination="JBn-2I-36r" id="Mbu-A7-n8y"/>
                         <outlet property="swipeArrow" destination="osD-zK-xRA" id="nk3-B1-5p3"/>
                         <outlet property="swipeLabel" destination="U3X-9j-eby" id="TED-Dx-JxX"/>
+                        <outlet property="swipeView" destination="2wb-Ab-30E" id="eH5-Nk-cZn"/>
                         <outlet property="thirdButton" destination="Qih-Gv-onA" id="Rdl-B6-eMR"/>
                         <outlet property="thirdPic" destination="pKR-Te-ZGT" id="nmP-Jg-uXe"/>
                         <outlet property="upRowMainButton" destination="Q2Y-jM-QtE" id="07v-qo-rsX"/>
