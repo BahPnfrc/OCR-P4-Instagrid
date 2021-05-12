@@ -39,10 +39,9 @@
                                 <rect key="frame" x="30" y="101" width="315" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osD-zK-xRA" userLabel="swipeArrow">
-                                        <rect key="frame" x="144.5" y="0.0" width="26" height="26"/>
+                                        <rect key="frame" x="140.5" y="0.0" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="osD-zK-xRA" secondAttribute="height" multiplier="1:1" id="6SV-GH-ESw"/>
-                                            <constraint firstAttribute="width" constant="26" id="Otg-j5-p4F"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="&lt;">
@@ -76,10 +75,12 @@
                                     <constraint firstAttribute="width" constant="100" id="2hA-ge-RE8"/>
                                     <constraint firstAttribute="bottom" secondItem="U3X-9j-eby" secondAttribute="bottom" id="R1m-NR-g9V"/>
                                     <constraint firstItem="osD-zK-xRA" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="eZe-nT-EE1"/>
+                                    <constraint firstItem="U3X-9j-eby" firstAttribute="top" secondItem="osD-zK-xRA" secondAttribute="bottom" id="h1c-2m-rms"/>
                                     <constraint firstAttribute="height" constant="60" id="hse-fc-aVu"/>
                                     <constraint firstItem="U3X-9j-eby" firstAttribute="bottom" secondItem="2wb-Ab-30E" secondAttribute="bottom" id="jUF-DE-ZL9"/>
                                     <constraint firstItem="U3X-9j-eby" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="wl0-TD-vKW"/>
                                     <constraint firstItem="U3X-9j-eby" firstAttribute="centerX" secondItem="2wb-Ab-30E" secondAttribute="centerX" id="yLF-17-pQM"/>
+                                    <constraint firstItem="osD-zK-xRA" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="top" id="zdf-7K-PMx"/>
                                     <constraint firstItem="osD-zK-xRA" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="top" id="zqA-2X-zmZ"/>
                                 </constraints>
                                 <variation key="default">
@@ -102,7 +103,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-LC-5eS" userLabel="DisplayView">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bkm-mv-8jF" userLabel="StackView">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bkm-mv-8jF" userLabel="DisplayViewMainStack">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="315"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="65r-zs-f7R" userLabel="UpRow">
@@ -111,12 +112,15 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4u-2k-3PM" userLabel="UpRowMainView">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="9NP-ZF-FP7" userLabel="upRowMainPic">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="9NP-ZF-FP7" userLabel="upRowMainPlus">
                                                                 <rect key="frame" x="59" y="59" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="9NP-ZF-FP7" secondAttribute="height" multiplier="1:1" id="9AY-78-k7e"/>
                                                                     <constraint firstAttribute="width" constant="40" id="9lT-4D-QXI"/>
                                                                 </constraints>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="79E-hM-1Nj" userLabel="upRowMainPic">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Y-jM-QtE" userLabel="upRowMainButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
@@ -125,8 +129,12 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="Q2Y-jM-QtE" firstAttribute="centerX" secondItem="H4u-2k-3PM" secondAttribute="centerX" id="E1L-Ks-23I"/>
+                                                            <constraint firstItem="79E-hM-1Nj" firstAttribute="centerY" secondItem="H4u-2k-3PM" secondAttribute="centerY" id="K7u-6j-ln8"/>
                                                             <constraint firstItem="9NP-ZF-FP7" firstAttribute="centerY" secondItem="H4u-2k-3PM" secondAttribute="centerY" id="UIO-SP-Fp9"/>
                                                             <constraint firstItem="Q2Y-jM-QtE" firstAttribute="width" secondItem="H4u-2k-3PM" secondAttribute="width" id="ZCN-Ki-kBb"/>
+                                                            <constraint firstItem="79E-hM-1Nj" firstAttribute="height" secondItem="H4u-2k-3PM" secondAttribute="height" id="dLB-48-qlM"/>
+                                                            <constraint firstItem="79E-hM-1Nj" firstAttribute="width" secondItem="H4u-2k-3PM" secondAttribute="width" id="g5o-Hj-QnO"/>
+                                                            <constraint firstItem="79E-hM-1Nj" firstAttribute="centerX" secondItem="H4u-2k-3PM" secondAttribute="centerX" id="gH1-wv-aLv"/>
                                                             <constraint firstItem="Q2Y-jM-QtE" firstAttribute="centerY" secondItem="H4u-2k-3PM" secondAttribute="centerY" id="gTU-UU-ZUj"/>
                                                             <constraint firstItem="9NP-ZF-FP7" firstAttribute="centerX" secondItem="H4u-2k-3PM" secondAttribute="centerX" id="jH1-ks-nVn"/>
                                                             <constraint firstItem="Q2Y-jM-QtE" firstAttribute="height" secondItem="H4u-2k-3PM" secondAttribute="height" id="rcj-e4-EJb"/>
@@ -135,12 +143,15 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBQ-EV-1Ko" userLabel="UpRowSecondView">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="Ieu-sO-Z2A" userLabel="upRowSecondPic">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="Ieu-sO-Z2A" userLabel="upRowSecondPlus">
                                                                 <rect key="frame" x="59" y="59" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Ieu-sO-Z2A" secondAttribute="height" multiplier="1:1" id="PMe-8m-eGT"/>
                                                                     <constraint firstAttribute="width" constant="40" id="fTl-CP-iGB"/>
                                                                 </constraints>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OQU-JE-qSF" userLabel="upRowSecondPic">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLM-wJ-Z5W" userLabel="upRowSecondButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
@@ -149,10 +160,14 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="Ieu-sO-Z2A" firstAttribute="centerX" secondItem="iBQ-EV-1Ko" secondAttribute="centerX" id="AOT-ox-T6l"/>
+                                                            <constraint firstItem="OQU-JE-qSF" firstAttribute="height" secondItem="iBQ-EV-1Ko" secondAttribute="height" id="CBe-2K-Ycl"/>
                                                             <constraint firstItem="mLM-wJ-Z5W" firstAttribute="centerX" secondItem="iBQ-EV-1Ko" secondAttribute="centerX" id="Cm8-C6-M1X"/>
                                                             <constraint firstItem="mLM-wJ-Z5W" firstAttribute="centerY" secondItem="iBQ-EV-1Ko" secondAttribute="centerY" id="V3k-4W-0o0"/>
+                                                            <constraint firstItem="OQU-JE-qSF" firstAttribute="centerY" secondItem="iBQ-EV-1Ko" secondAttribute="centerY" id="c1V-aP-JDZ"/>
                                                             <constraint firstItem="Ieu-sO-Z2A" firstAttribute="centerY" secondItem="iBQ-EV-1Ko" secondAttribute="centerY" id="ehs-cA-w9c"/>
                                                             <constraint firstItem="mLM-wJ-Z5W" firstAttribute="height" secondItem="iBQ-EV-1Ko" secondAttribute="height" id="lVZ-B9-t49"/>
+                                                            <constraint firstItem="OQU-JE-qSF" firstAttribute="centerX" secondItem="iBQ-EV-1Ko" secondAttribute="centerX" id="uaO-Di-xQP"/>
+                                                            <constraint firstItem="OQU-JE-qSF" firstAttribute="width" secondItem="iBQ-EV-1Ko" secondAttribute="width" id="y4n-Gp-mpf"/>
                                                             <constraint firstItem="mLM-wJ-Z5W" firstAttribute="width" secondItem="iBQ-EV-1Ko" secondAttribute="width" id="ysV-fd-6ox"/>
                                                         </constraints>
                                                     </view>
@@ -164,12 +179,15 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-FO-XiJ" userLabel="DownRowMainView">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-Rd-bZQ" userLabel="downRowMainPic">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-Rd-bZQ" userLabel="downRowMainPlus">
                                                                 <rect key="frame" x="59" y="59" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="cwu-Xt-jEc"/>
                                                                     <constraint firstAttribute="width" secondItem="KAG-Rd-bZQ" secondAttribute="height" multiplier="1:1" id="svi-Qf-hjc"/>
                                                                 </constraints>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzd-Jt-R0l" userLabel="downRowMainPic">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfd-QY-D3F" userLabel="downRowMainButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
@@ -179,8 +197,12 @@
                                                         <constraints>
                                                             <constraint firstItem="KAG-Rd-bZQ" firstAttribute="centerX" secondItem="4yw-FO-XiJ" secondAttribute="centerX" id="4Kv-OI-lLC"/>
                                                             <constraint firstItem="xfd-QY-D3F" firstAttribute="centerX" secondItem="4yw-FO-XiJ" secondAttribute="centerX" id="E9K-iU-sht"/>
+                                                            <constraint firstItem="fzd-Jt-R0l" firstAttribute="height" secondItem="4yw-FO-XiJ" secondAttribute="height" id="Rkc-dy-iNk"/>
+                                                            <constraint firstItem="fzd-Jt-R0l" firstAttribute="centerY" secondItem="4yw-FO-XiJ" secondAttribute="centerY" id="cXK-Dz-BJH"/>
+                                                            <constraint firstItem="fzd-Jt-R0l" firstAttribute="width" secondItem="4yw-FO-XiJ" secondAttribute="width" id="fON-yQ-b8D"/>
                                                             <constraint firstItem="xfd-QY-D3F" firstAttribute="height" secondItem="4yw-FO-XiJ" secondAttribute="height" id="fVB-NJ-bwi"/>
                                                             <constraint firstItem="xfd-QY-D3F" firstAttribute="centerY" secondItem="4yw-FO-XiJ" secondAttribute="centerY" id="gn1-jg-DDa"/>
+                                                            <constraint firstItem="fzd-Jt-R0l" firstAttribute="centerX" secondItem="4yw-FO-XiJ" secondAttribute="centerX" id="lmM-ir-nw6"/>
                                                             <constraint firstItem="KAG-Rd-bZQ" firstAttribute="centerY" secondItem="4yw-FO-XiJ" secondAttribute="centerY" id="nXe-An-wVG"/>
                                                             <constraint firstItem="xfd-QY-D3F" firstAttribute="width" secondItem="4yw-FO-XiJ" secondAttribute="width" id="tby-Gv-Rnc"/>
                                                         </constraints>
@@ -188,12 +210,15 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIa-yq-ms0" userLabel="DownRowSecondView">
                                                         <rect key="frame" x="157.5" y="0.0" width="157.5" height="157.5"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-mO-G8D" userLabel="downRowSecondPic">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-mO-G8D" userLabel="downRowSecondPlus">
                                                                 <rect key="frame" x="59" y="59" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="TLn-A7-tGP"/>
                                                                     <constraint firstAttribute="width" secondItem="5qG-mO-G8D" secondAttribute="height" multiplier="1:1" id="lDE-kU-CRi"/>
                                                                 </constraints>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8S4-Ay-BHC" userLabel="downRowSecondPic">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYA-cA-9yE" userLabel="downRowSecondButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
@@ -203,10 +228,14 @@
                                                         <constraints>
                                                             <constraint firstItem="WYA-cA-9yE" firstAttribute="centerY" secondItem="WIa-yq-ms0" secondAttribute="centerY" id="JlM-bX-i0f"/>
                                                             <constraint firstItem="5qG-mO-G8D" firstAttribute="centerX" secondItem="WIa-yq-ms0" secondAttribute="centerX" id="Opb-WW-WnR"/>
+                                                            <constraint firstItem="8S4-Ay-BHC" firstAttribute="centerY" secondItem="WIa-yq-ms0" secondAttribute="centerY" id="Qb0-YP-q4W"/>
+                                                            <constraint firstItem="8S4-Ay-BHC" firstAttribute="height" secondItem="WIa-yq-ms0" secondAttribute="height" id="SLg-Gv-iLB"/>
+                                                            <constraint firstItem="8S4-Ay-BHC" firstAttribute="width" secondItem="WIa-yq-ms0" secondAttribute="width" id="WQ4-xy-3cS"/>
                                                             <constraint firstItem="WYA-cA-9yE" firstAttribute="height" secondItem="WIa-yq-ms0" secondAttribute="height" id="hdl-zm-g80"/>
                                                             <constraint firstItem="WYA-cA-9yE" firstAttribute="centerX" secondItem="WIa-yq-ms0" secondAttribute="centerX" id="jTr-4H-Bg4"/>
                                                             <constraint firstItem="5qG-mO-G8D" firstAttribute="centerY" secondItem="WIa-yq-ms0" secondAttribute="centerY" id="nuA-cP-iD5"/>
                                                             <constraint firstItem="WYA-cA-9yE" firstAttribute="width" secondItem="WIa-yq-ms0" secondAttribute="width" id="tEV-Fb-xat"/>
+                                                            <constraint firstItem="8S4-Ay-BHC" firstAttribute="centerX" secondItem="WIa-yq-ms0" secondAttribute="centerX" id="y88-ur-je4"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -398,14 +427,17 @@
                     </view>
                     <connections>
                         <outlet property="displayView" destination="VBM-LC-5eS" id="XXw-KJ-wNG"/>
+                        <outlet property="displayViewMainStack" destination="bkm-mv-8jF" id="LxP-9O-uei"/>
                         <outlet property="downRowMainButton" destination="xfd-QY-D3F" id="7Xa-2s-Ub6"/>
-                        <outlet property="downRowMainPic" destination="KAG-Rd-bZQ" id="M34-JV-Uth"/>
+                        <outlet property="downRowMainPic" destination="fzd-Jt-R0l" id="Bmn-YT-0TE"/>
+                        <outlet property="downRowMainPlus" destination="KAG-Rd-bZQ" id="M34-JV-Uth"/>
                         <outlet property="downRowMainView" destination="4yw-FO-XiJ" id="Fuv-wt-9Kw"/>
                         <outlet property="downRowSecondButton" destination="WYA-cA-9yE" id="z3T-bI-H9b"/>
-                        <outlet property="downRowSecondPic" destination="5qG-mO-G8D" id="YYp-gX-nNX"/>
+                        <outlet property="downRowSecondPic" destination="8S4-Ay-BHC" id="aAP-l7-gwI"/>
+                        <outlet property="downRowSecondPlus" destination="5qG-mO-G8D" id="YYp-gX-nNX"/>
                         <outlet property="downRowSecondView" destination="WIa-yq-ms0" id="7Dn-3D-XYU"/>
                         <outlet property="firstButton" destination="Ehd-AQ-ffW" id="sCb-Zr-6YD"/>
-                        <outlet property="firstPic" destination="AyG-AI-rM6" id="6ke-1K-rPk"/>
+                        <outlet property="firstPic" destination="AyG-AI-rM6" id="YbO-Bx-flc"/>
                         <outlet property="instagridLabel" destination="KGI-pX-M8l" id="Jhc-eB-OG8"/>
                         <outlet property="secondPic" destination="tzn-b9-o7I" id="mRd-1p-oT3"/>
                         <outlet property="secondbutton" destination="JBn-2I-36r" id="Mbu-A7-n8y"/>
@@ -415,16 +447,18 @@
                         <outlet property="thirdButton" destination="Qih-Gv-onA" id="Rdl-B6-eMR"/>
                         <outlet property="thirdPic" destination="pKR-Te-ZGT" id="nmP-Jg-uXe"/>
                         <outlet property="upRowMainButton" destination="Q2Y-jM-QtE" id="07v-qo-rsX"/>
-                        <outlet property="upRowMainPic" destination="9NP-ZF-FP7" id="xod-6D-b6B"/>
+                        <outlet property="upRowMainPic" destination="79E-hM-1Nj" id="tTJ-Hi-hWE"/>
+                        <outlet property="upRowMainPlus" destination="9NP-ZF-FP7" id="xod-6D-b6B"/>
                         <outlet property="upRowMainView" destination="H4u-2k-3PM" id="jsY-LF-a68"/>
                         <outlet property="upRowSecondButton" destination="mLM-wJ-Z5W" id="HrV-lw-QMS"/>
-                        <outlet property="upRowSecondPic" destination="Ieu-sO-Z2A" id="smB-g8-Yd4"/>
+                        <outlet property="upRowSecondPic" destination="OQU-JE-qSF" id="CQV-zu-4MV"/>
+                        <outlet property="upRowSecondPlus" destination="Ieu-sO-Z2A" id="smB-g8-Yd4"/>
                         <outlet property="upRowSecondView" destination="iBQ-EV-1Ko" id="LX8-rJ-bdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121.81425485961124" y="117.75700934579439"/>
+            <point key="canvasLocation" x="120.8" y="117.39130434782609"/>
         </scene>
     </scenes>
     <resources>
