@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Instagrid
-//
-//  Created by Pierre-Alexandre on 30/04/2021.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -47,6 +40,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdPic: UIImageView!
     @IBOutlet weak var thirdButton: UIButton!
     
+    @IBOutlet weak var displayViewPortraitConstraint: NSLayoutConstraint!
+    @IBOutlet weak var displayViewLandscapeConstraint: NSLayoutConstraint!
+    
     // MARK: Properties
     
     let borderWidth: CGFloat = 5.0
@@ -54,10 +50,12 @@ class ViewController: UIViewController {
     let imagePicker = UIImagePickerController()
     var imageDesigner: UIImageView?
     
+    var activityViewController: UIActivityViewController?
+    
     enum Orientation { case isUndefined, isPortrait, isLandscape }
     enum Setting { case first, second, third }
     enum Frame { case first, second, third }
-    enum Tag: Int { case upMain = 11, upSecond = 12, downMain = 21, downSecond = 22}
+    enum Tag: Int { case upMain, upSecond, downMain, downSecond }
 
     var currentOrientation: Orientation = .isUndefined
     var currentSetting: Setting = .first {
@@ -68,19 +66,6 @@ class ViewController: UIViewController {
     }
     
     // MARK: Cycles
-    
-//      override func viewDidLayoutSubviews() {
-//        let attributes: [NSLayoutConstraint.Attribute] =
-//            [.top, .bottom, .left, .right]
-//        for attribute in attributes {
-//            let constraint = NSLayoutConstraint(
-//                item: displayViewMainStack as Any,
-//                attribute: attribute, relatedBy: .equal,
-//                toItem: displayView, attribute: attribute,
-//                multiplier: borderWidth, constant: 1)
-//            displayViewMainStack.addConstraint(constraint)
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,29 +80,24 @@ class ViewController: UIViewController {
             view.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
         }
         
+        displayView.layer.borderWidth = 10
+        displayView.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
+        
         imagePicker.delegate = self
         
         addSwipeGesture()
         registerPicButtons()
         _firstSetting()
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setSwipeOrientation()
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setSwipeOrientation()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setSwipeOrientation()
-    }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        setSwipeOrientation()
-    }
-    
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         setSwipeOrientation()
     }
     
@@ -191,18 +171,15 @@ class ViewController: UIViewController {
     
     func setSwipeOrientation() {
     if UIDevice.current.orientation.isLandscape {
-            print("Device is in landscape mode")
             _setLandscape()
-        
         } else {
-            print("Device is in portrait mode")
             _setPortrait()
         }
     }
     private func _setPortrait() {
         currentOrientation = .isPortrait
         (swipeArrow.text, swipeLabel.text) = ("<", "Swipe up to share")
-        swipeArrow.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2) // pi = 180°
+        swipeArrow.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
     }
     private func _setLandscape() {
         currentOrientation = .isLandscape
@@ -221,12 +198,12 @@ class ViewController: UIViewController {
             button.tag = tag.rawValue
             button.addTarget(
                 self,
-                action: #selector(runPicButton(_:)),
+                action: #selector(runPicButtons(_:)),
                 for: .touchUpInside)
         }
     }
     
-    @objc private func runPicButton(_ sender: UIButton) {
+    @objc private func runPicButtons(_ sender: UIButton) {
         let tagToPic: [Int: UIImageView] =
             [Tag.upMain.rawValue: upRowMainPic!,
              Tag.upSecond.rawValue: upRowSecondPic!,
@@ -248,37 +225,84 @@ class ViewController: UIViewController {
         swipeLeft.direction = .left ; view.addGestureRecognizer(swipeLeft)
     }
     
-    @objc private func performSwipe(_ sender: UISwipeGestureRecognizer) {
-        var translation: (x: CGFloat, y: CGFloat)
-        switch (currentOrientation, sender.state, sender.direction) {
-        case (.isPortrait, .ended, .up): translation = (0, 0 - UIScreen.main.bounds.height)
-        case (.isLandscape, .ended, .left): translation = (0 - UIScreen.main.bounds.width, 0)
-        default: return
-        }
-        UIView.animate(withDuration: 0.5) {
-            self.displayView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
-        } completion: { (completed) in
-            if completed {
-                _ = self.exportAfterSwipe()
-                UIView.animate(withDuration: 0.5) {
-                    self.displayView.transform = .identity
-                }
-            }
+//    @objc private func performSwipe(_ sender: UISwipeGestureRecognizer) {
+//        // displayViewConstraint
+//        var translation: (x: CGFloat, y: CGFloat)
+//        switch (currentOrientation, sender.state, sender.direction) {
+//        case (.isPortrait, .ended, .up): translation = (0, 0 - UIScreen.main.bounds.height)
+//        case (.isLandscape, .ended, .left): translation = (0 - UIScreen.main.bounds.width, 0)
+//        default: return
+//        }
+//        UIView.animate(withDuration: 0.5) {
+//            self.displayViewPortraitConstraint.constant = translation.x
+//            //self.displayView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
+//        } completion: { (completed) in
+//            if completed {
+//                _ = self.exportAfterSwipe()
+//                UIView.animate(withDuration: 0.5) {
+//                    self.displayView.transform = .identity
+//                }
+//            }
+//        }
+//    }
+    
+    func doSwipeAnimationInPortrait(translation: CGFloat) {
+        UIView.animate(withDuration: 1) {
+            self.displayViewPortraitConstraint.constant = translation
+            self.displayView.layoutIfNeeded()
         }
     }
     
-    private func exportAfterSwipe() -> Bool {
-        guard let export = self.displayView else { return false }
-        let renderer = UIGraphicsImageRenderer(size: export.bounds.size)
-        let image = renderer.image { _ in
-            export.drawHierarchy(in: export.bounds, afterScreenUpdates: true)
+    func doSwipeAnimationInLandscape(translation: CGFloat) {
+        UIView.animate(withDuration: 1) {
+            self.displayViewLandscapeConstraint.constant = translation
+            self.displayView.layoutIfNeeded()
         }
-        let itemsToExport: [Any] = [image]
-        let activityViewController = UIActivityViewController(
-            activityItems: itemsToExport,
+    }
+    
+    @objc private func performSwipe(_ sender: UISwipeGestureRecognizer) {
+        
+        guard let displayView = self.displayView else { return }
+        switch (currentOrientation, sender.state, sender.direction) {
+        case (.isPortrait, .ended, .up):
+            let translation = 0 - UIScreen.main.bounds.height
+            doSwipeAnimationInPortrait(translation: translation)
+        case (.isLandscape, .ended, .left):
+            let translation = 0 - UIScreen.main.bounds.width
+            doSwipeAnimationInLandscape(translation: translation)
+        default: return
+        }
+        
+        let renderer = UIGraphicsImageRenderer(size: displayView.bounds.size)
+        let renderedImage = renderer.image { _ in
+            displayView.drawHierarchy(in: displayView.bounds, afterScreenUpdates: true)
+        }
+        
+        self.activityViewController = UIActivityViewController(
+            activityItems: [renderedImage],
             applicationActivities: nil)
-        present(activityViewController, animated: true)
-        return true
+    
+        guard let avc = activityViewController else { return }
+        avc.completionWithItemsHandler = { (
+            activity: UIActivity.ActivityType?,
+            completed: Bool,
+            result: [Any]?,
+            error: Error?) in
+            
+            UIView.animate(withDuration: 1) {
+                if sender.direction == .up {
+                    self.displayViewPortraitConstraint.constant = 0
+                    self.activityViewController = nil
+                    
+                } else if sender.direction == .left {
+                    self.displayViewLandscapeConstraint.constant = 0
+                    self.activityViewController = nil
+                }
+            }
+            
+        }
+        present(avc, animated: true, completion: nil)
+        
     }
 
 }
@@ -293,16 +317,15 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
         var imagePicked: UIImage?
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imagePicked = originalImage
-        } else {
-            //
-            return
+            
+            self.imageDesigner?.contentMode = .scaleAspectFill
+            self.imageDesigner?.image = imagePicked
+            self.imageDesigner?.isHidden = false
+
+            dismiss(animated: true, completion: nil)
         }
     
-        self.imageDesigner?.contentMode = .scaleAspectFill
-        self.imageDesigner?.image = imagePicked
-        self.imageDesigner?.isHidden = false
-
-        dismiss(animated: true, completion: nil)
+ 
     }
 }
 
