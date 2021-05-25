@@ -224,39 +224,18 @@ class ViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(performSwipe))
         swipeLeft.direction = .left ; view.addGestureRecognizer(swipeLeft)
     }
-    
-//    @objc private func performSwipe(_ sender: UISwipeGestureRecognizer) {
-//        // displayViewConstraint
-//        var translation: (x: CGFloat, y: CGFloat)
-//        switch (currentOrientation, sender.state, sender.direction) {
-//        case (.isPortrait, .ended, .up): translation = (0, 0 - UIScreen.main.bounds.height)
-//        case (.isLandscape, .ended, .left): translation = (0 - UIScreen.main.bounds.width, 0)
-//        default: return
-//        }
-//        UIView.animate(withDuration: 0.5) {
-//            self.displayViewPortraitConstraint.constant = translation.x
-//            //self.displayView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
-//        } completion: { (completed) in
-//            if completed {
-//                _ = self.exportAfterSwipe()
-//                UIView.animate(withDuration: 0.5) {
-//                    self.displayView.transform = .identity
-//                }
-//            }
-//        }
-//    }
-    
+     
     func doSwipeAnimationInPortrait(translation: CGFloat) {
         UIView.animate(withDuration: 1) {
             self.displayViewPortraitConstraint.constant = translation
-            self.displayView.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         }
     }
     
     func doSwipeAnimationInLandscape(translation: CGFloat) {
         UIView.animate(withDuration: 1) {
             self.displayViewLandscapeConstraint.constant = translation
-            self.displayView.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -268,7 +247,7 @@ class ViewController: UIViewController {
             let translation = 0 - UIScreen.main.bounds.height
             doSwipeAnimationInPortrait(translation: translation)
         case (.isLandscape, .ended, .left):
-            let translation = 0 - UIScreen.main.bounds.width
+            let translation = 0 + UIScreen.main.bounds.width
             doSwipeAnimationInLandscape(translation: translation)
         default: return
         }
@@ -292,17 +271,14 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 1) {
                 if sender.direction == .up {
                     self.displayViewPortraitConstraint.constant = 0
-                    self.activityViewController = nil
-                    
                 } else if sender.direction == .left {
                     self.displayViewLandscapeConstraint.constant = 0
-                    self.activityViewController = nil
                 }
+                self.activityViewController = nil
+                self.view.layoutIfNeeded()
             }
-            
         }
         present(avc, animated: true, completion: nil)
-        
     }
 
 }
@@ -324,8 +300,6 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
 
             dismiss(animated: true, completion: nil)
         }
-    
- 
     }
 }
 

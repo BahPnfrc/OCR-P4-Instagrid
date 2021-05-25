@@ -36,7 +36,7 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-Ab-30E" userLabel="SwipeView">
-                                <rect key="frame" x="30" y="101" width="315" height="60"/>
+                                <rect key="frame" x="30" y="90" width="315" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osD-zK-xRA" userLabel="swipeArrow">
                                         <rect key="frame" x="140.5" y="0.0" width="34" height="34"/>
@@ -357,10 +357,12 @@
                             <constraint firstItem="4S4-CU-BZa" firstAttribute="top" secondItem="VBM-LC-5eS" secondAttribute="top" id="N1f-7D-yF9"/>
                             <constraint firstItem="2wb-Ab-30E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Npl-Jk-gin"/>
                             <constraint firstItem="KGI-pX-M8l" firstAttribute="centerX" secondItem="VBM-LC-5eS" secondAttribute="centerX" id="RPB-gd-fC6"/>
-                            <constraint firstItem="2wb-Ab-30E" firstAttribute="centerX" secondItem="VBM-LC-5eS" secondAttribute="centerX" id="S3i-If-jQY"/>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="S3i-If-jQY">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="bottom" secondItem="VBM-LC-5eS" secondAttribute="bottom" constant="30" id="SRC-OQ-1yJ"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="top" secondItem="KGI-pX-M8l" secondAttribute="bottom" constant="30" id="SsS-LI-VKX"/>
-                            <constraint firstItem="VBM-LC-5eS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SsZ-xu-T1S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerX" secondItem="VBM-LC-5eS" secondAttribute="centerX" id="SsZ-xu-T1S"/>
                             <constraint firstItem="2wb-Ab-30E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Svd-yf-upu"/>
                             <constraint firstItem="2wb-Ab-30E" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="Vuf-Dw-68S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VBM-LC-5eS" secondAttribute="trailing" constant="30" id="Vwy-7z-i1n"/>
@@ -370,19 +372,21 @@
                             <constraint firstItem="4S4-CU-BZa" firstAttribute="width" secondItem="VBM-LC-5eS" secondAttribute="width" id="iHe-gE-tsE"/>
                             <constraint firstItem="4S4-CU-BZa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="ib8-B7-rgN"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="top" secondItem="2wb-Ab-30E" secondAttribute="bottom" constant="30" id="kjw-dl-OXG"/>
-                            <constraint firstItem="2wb-Ab-30E" firstAttribute="bottom" secondItem="VBM-LC-5eS" secondAttribute="top" constant="-15" id="onN-DU-Pe3"/>
-                            <constraint firstItem="VBM-LC-5eS" firstAttribute="leading" secondItem="2wb-Ab-30E" secondAttribute="trailing" constant="30" id="pIO-a2-RYV"/>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.45" id="onN-DU-Pe3"/>
+                            <constraint firstItem="2wb-Ab-30E" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.35" id="pIO-a2-RYV">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4S4-CU-BZa" secondAttribute="trailing" constant="30" id="v55-tu-qeB"/>
                             <constraint firstItem="VBM-LC-5eS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zhI-eZ-bwK"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="v55-tu-qeB"/>
+                                <exclude reference="FQ2-Bn-OQl"/>
                                 <exclude reference="BHb-mn-FbM"/>
                                 <exclude reference="FnW-DY-pxT"/>
                                 <exclude reference="Npl-Jk-gin"/>
                                 <exclude reference="Svd-yf-upu"/>
-                                <exclude reference="FQ2-Bn-OQl"/>
                                 <exclude reference="SRC-OQ-1yJ"/>
                                 <exclude reference="SsS-LI-VKX"/>
                                 <exclude reference="SsZ-xu-T1S"/>
@@ -398,6 +402,8 @@
                             <mask key="constraints">
                                 <exclude reference="Vwy-7z-i1n"/>
                                 <include reference="v55-tu-qeB"/>
+                                <exclude reference="Az5-uP-OMu"/>
+                                <include reference="FQ2-Bn-OQl"/>
                                 <include reference="BHb-mn-FbM"/>
                                 <exclude reference="FnW-DY-pxT"/>
                                 <include reference="Npl-Jk-gin"/>
@@ -405,8 +411,6 @@
                                 <exclude reference="Svd-yf-upu"/>
                                 <exclude reference="Vuf-Dw-68S"/>
                                 <exclude reference="onN-DU-Pe3"/>
-                                <exclude reference="Az5-uP-OMu"/>
-                                <include reference="FQ2-Bn-OQl"/>
                                 <include reference="SRC-OQ-1yJ"/>
                                 <include reference="SsS-LI-VKX"/>
                                 <include reference="SsZ-xu-T1S"/>
