@@ -43,7 +43,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayViewPortraitConstraint: NSLayoutConstraint!
     @IBOutlet weak var displayViewLandscapeConstraint: NSLayoutConstraint!
     
-    // MARK: Properties
+    // MARK: - Enum
+    
+    enum EnumOrientation { case isUndefined, isPortrait, isLandscape }
+    enum EnumSetting { case isFirst, isSecond, isThird }
+    enum EnumFrame { case isFirst, isSecond, isThird }
+    enum EnumTag: Int { case upMain, upSecond, downMain, downSecond }
+    
+    // MARK: - Properties
     
     let borderWidth: CGFloat = 5.0
     
@@ -51,21 +58,16 @@ class ViewController: UIViewController {
     var imageDesigner: UIImageView?
     
     var activityViewController: UIActivityViewController?
-    
-    enum Orientation { case isUndefined, isPortrait, isLandscape }
-    enum Setting { case first, second, third }
-    enum Frame { case first, second, third }
-    enum Tag: Int { case upMain, upSecond, downMain, downSecond }
 
-    var currentOrientation: Orientation = .isUndefined
-    var currentSetting: Setting = .first {
-        didSet { didSetCurrentSetting() }
+    var currentOrientation: EnumOrientation = .isUndefined
+    var currentSetting: EnumSetting = .isFirst {
+        didSet { settingDidChange() }
     }
-    var currentFrame: Frame = .first {
-        didSet { didSetCurrentFrame() }
+    var currentFrame: EnumFrame = .isFirst {
+        didSet { frameDidChange() }
     }
     
-    // MARK: Cycles
+    // MARK: - Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,140 +77,134 @@ class ViewController: UIViewController {
              downRowMainButton, downRowSecondButton,
              displayView]
         for any in collection {
-            guard let view = any as? UIView else { fatalError() }
+            guard let view = any as? UIView else { continue }
             view.layer.borderWidth = borderWidth
             view.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
         }
-        
+
         displayView.layer.borderWidth = 10
         displayView.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
         
         imagePicker.delegate = self
         
-        addSwipeGesture()
-        registerPicButtons()
-        _firstSetting()
-
+        buttonsRegister()
+        gestureRegisterSwipe()
+        settingToFirstFrame()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setSwipeOrientation()
-        
+        orientationSetSwipe()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        setSwipeOrientation()
+        orientationSetSwipe()
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
-    @IBAction func didCallFirstButton(_ sender: Any) {
-        currentSetting = .first
+    @IBAction func actionRequestedFirstSetting(_ sender: Any) {
+        currentSetting = .isFirst
     }
-    @IBAction func didCallSecondButton(_ sender: Any) {
-        currentSetting = .second
+    @IBAction func actionRequestedSecondSetting(_ sender: Any) {
+        currentSetting = .isSecond
     }
-    @IBAction func didCallThirdButton(_ sender: Any) {
-        currentSetting = .third
-    }
-    
-    // MARK: Frame functions
-    
-    private func didSetCurrentFrame() {
-        let views: [UIView?] =
-            [upRowMainView, upRowSecondView,
-             downRowMainView, downRowSecondView]
-        var isHiddenValue = [Bool]()
-        switch currentFrame {
-        case .first:
-            isHiddenValue = [false, true, false, false]
-        case .second:
-            isHiddenValue = [false, false, false, true]
-        case .third:
-            isHiddenValue = [false, false, false, false]
-        }
-        guard views.count == isHiddenValue.count else { fatalError() }
-        for index in 0...views.count - 1 {
-            views[index]?.isHidden = isHiddenValue[index]
-        }
+    @IBAction func actionRequestedThirdSetting(_ sender: Any) {
+        currentSetting = .isThird
     }
     
-    // MARK: Settings functions
+    // MARK: - Setting
 
-    func didSetCurrentSetting() {
-        _resetSetting()
+    func settingDidChange() {
+        settingResetAll()
         switch currentSetting {
-        case .first: _firstSetting()
-        case .second: _secondSetting()
-        case .third: _thirdSetting()
+        case .isFirst: settingToFirstFrame()
+        case .isSecond: settingToSecondFrame()
+        case .isThird: settingToThirdFrame()
         }
     }
-    private func _resetSetting() {
+    func settingResetAll() {
         let pics: [UIImageView?] =
             [firstPic, secondPic, thirdPic,
              upRowMainPic, upRowSecondPic,
              downRowMainPic, downRowSecondPic]
         for pic in pics { pic?.isHidden = true }
     }
-    private func _firstSetting () {
+    func settingToFirstFrame () {
         firstPic.isHidden = false
         firstPic.image = #imageLiteral(resourceName: "Selected")
-        currentFrame = .first
+        currentFrame = .isFirst
     }
-    private func _secondSetting () {
+    func settingToSecondFrame () {
         secondPic.isHidden = false
         secondPic.image = #imageLiteral(resourceName: "Selected")
-        currentFrame = .second
+        currentFrame = .isSecond
     }
-    private func _thirdSetting () {
+    func settingToThirdFrame () {
         thirdPic.isHidden = false
         thirdPic.image = #imageLiteral(resourceName: "Selected")
-        currentFrame = .third
+        currentFrame = .isThird
     }
     
-    // MARK: - Orientation functions
+    // MARK: - Frame
     
-    func setSwipeOrientation() {
-    if UIDevice.current.orientation.isLandscape {
-            _setLandscape()
-        } else {
-            _setPortrait()
+    private func frameDidChange() {
+        let views: [UIView?] =
+            [upRowMainView, upRowSecondView,
+             downRowMainView, downRowSecondView]
+        var isHiddenValue = [Bool]()
+        switch currentFrame {
+        case .isFirst: isHiddenValue = [false, true, false, false]
+        case .isSecond: isHiddenValue = [false, false, false, true]
+        case .isThird: isHiddenValue = [false, false, false, false]
+        }
+        for index in 0...views.count - 1 {
+            views[index]?.isHidden = isHiddenValue[index]
         }
     }
-    private func _setPortrait() {
+    
+    // MARK: - Orientation
+    
+    func orientationSetSwipe() {
+    if UIDevice.current.orientation.isLandscape {
+            orientationToLandscape()
+        } else {
+            orientationToPortrait()
+        }
+    }
+    func orientationToPortrait() {
         currentOrientation = .isPortrait
         (swipeArrow.text, swipeLabel.text) = ("<", "Swipe up to share")
         swipeArrow.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
     }
-    private func _setLandscape() {
+    func orientationToLandscape() {
         currentOrientation = .isLandscape
         (swipeArrow.text, swipeLabel.text) = ("<", "Swipe left to share")
         swipeArrow.transform = CGAffineTransform(rotationAngle: 0)
     }
     
-    // MARK: - Pic functions
+    // MARK: - Buttons
     
-    func registerPicButtons() {
+    func buttonsRegister() {
         for (button, tag) in [
-            (upRowMainButton!, Tag.upMain ),
-            (upRowSecondButton!, Tag.upSecond),
-            (downRowMainButton!, Tag.downMain),
-            (downRowSecondButton!, Tag.downSecond) ] {
+            (upRowMainButton!, EnumTag.upMain ),
+            (upRowSecondButton!, EnumTag.upSecond),
+            (downRowMainButton!, EnumTag.downMain),
+            (downRowSecondButton!, EnumTag.downSecond) ] {
             button.tag = tag.rawValue
             button.addTarget(
                 self,
-                action: #selector(runPicButtons(_:)),
+                action: #selector(buttonsRun(_:)),
                 for: .touchUpInside)
         }
     }
     
-    @objc private func runPicButtons(_ sender: UIButton) {
+    @objc private func buttonsRun(_ sender: UIButton) {
         let tagToPic: [Int: UIImageView] =
-            [Tag.upMain.rawValue: upRowMainPic!,
-             Tag.upSecond.rawValue: upRowSecondPic!,
-             Tag.downMain.rawValue: downRowMainPic!,
-             Tag.downSecond.rawValue: downRowSecondPic!]
+            [EnumTag.upMain.rawValue: upRowMainPic!,
+             EnumTag.upSecond.rawValue: upRowSecondPic!,
+             EnumTag.downMain.rawValue: downRowMainPic!,
+             EnumTag.downSecond.rawValue: downRowSecondPic!]
         self.imageDesigner = tagToPic[sender.tag]!
         
         imagePicker.sourceType = .photoLibrary
@@ -216,39 +212,25 @@ class ViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    // MARK: - Gesture functions
+    // MARK: - Gesture
     
-    func addSwipeGesture() {
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(performSwipe))
+    func gestureRegisterSwipe() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(gesturePerformSwipe))
         swipeUp.direction = .up ; view.addGestureRecognizer(swipeUp)
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(performSwipe))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(gesturePerformSwipe))
         swipeLeft.direction = .left ; view.addGestureRecognizer(swipeLeft)
     }
-     
-    func doSwipeAnimationInPortrait(translation: CGFloat) {
-        UIView.animate(withDuration: 1) {
-            self.displayViewPortraitConstraint.constant = translation
-            self.view.layoutIfNeeded()
-        }
-    }
     
-    func doSwipeAnimationInLandscape(translation: CGFloat) {
-        UIView.animate(withDuration: 1) {
-            self.displayViewLandscapeConstraint.constant = translation
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc private func performSwipe(_ sender: UISwipeGestureRecognizer) {
+    @objc private func gesturePerformSwipe(_ sender: UISwipeGestureRecognizer) {
         
         guard let displayView = self.displayView else { return }
         switch (currentOrientation, sender.state, sender.direction) {
         case (.isPortrait, .ended, .up):
             let translation = 0 - UIScreen.main.bounds.height
-            doSwipeAnimationInPortrait(translation: translation)
+            gestureInPortraitWithAnimation(translation: translation)
         case (.isLandscape, .ended, .left):
             let translation = 0 + UIScreen.main.bounds.width
-            doSwipeAnimationInLandscape(translation: translation)
+            gestureInLandscapeWithAnimation(translation: translation)
         default: return
         }
         
@@ -281,6 +263,19 @@ class ViewController: UIViewController {
         present(avc, animated: true, completion: nil)
     }
 
+    func gestureInPortraitWithAnimation(translation: CGFloat) {
+        UIView.animate(withDuration: 1) {
+            self.displayViewPortraitConstraint.constant = translation
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func gestureInLandscapeWithAnimation(translation: CGFloat) {
+        UIView.animate(withDuration: 1) {
+            self.displayViewLandscapeConstraint.constant = translation
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 // MARK: - UIImagePickerControllerDelegate
@@ -293,11 +288,9 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
         var imagePicked: UIImage?
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imagePicked = originalImage
-            
             self.imageDesigner?.contentMode = .scaleAspectFill
             self.imageDesigner?.image = imagePicked
             self.imageDesigner?.isHidden = false
-
             dismiss(animated: true, completion: nil)
         }
     }
