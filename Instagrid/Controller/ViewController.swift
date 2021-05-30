@@ -17,28 +17,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var downRowMainView: UIView!
     @IBOutlet weak var downRowSecondView: UIView!
     
-    @IBOutlet weak var upRowMainPic: UIImageView!
+    @IBOutlet weak var upRowMainImageView: UIImageView!
     @IBOutlet weak var upRowMainPlus: UIImageView!
     @IBOutlet weak var upRowMainButton: UIButton!
     
-    @IBOutlet weak var upRowSecondPic: UIImageView!
+    @IBOutlet weak var upRowSecondImageView: UIImageView!
     @IBOutlet weak var upRowSecondPlus: UIImageView!
     @IBOutlet weak var upRowSecondButton: UIButton!
     
-    @IBOutlet weak var downRowMainPic: UIImageView!
+    @IBOutlet weak var downRowMainImageView: UIImageView!
     @IBOutlet weak var downRowMainPlus: UIImageView!
     @IBOutlet weak var downRowMainButton: UIButton!
     
-    @IBOutlet weak var downRowSecondPic: UIImageView!
+    @IBOutlet weak var downRowSecondImageView: UIImageView!
     @IBOutlet weak var downRowSecondPlus: UIImageView!
     @IBOutlet weak var downRowSecondButton: UIButton!
     
-    @IBOutlet weak var firstPic: UIImageView!
-    @IBOutlet weak var firstButton: UIButton!
-    @IBOutlet weak var secondPic: UIImageView!
-    @IBOutlet weak var secondbutton: UIButton!
-    @IBOutlet weak var thirdPic: UIImageView!
-    @IBOutlet weak var thirdButton: UIButton!
+    @IBOutlet weak var settingFirstImageView: UIImageView!
+    @IBOutlet weak var settingFirstButton: UIButton!
+    @IBOutlet weak var settingSecondImageView: UIImageView!
+    @IBOutlet weak var settingSecondButton: UIButton!
+    @IBOutlet weak var settingThirdImageView: UIImageView!
+    @IBOutlet weak var settingThirdButton: UIButton!
     
     @IBOutlet weak var displayViewPortraitConstraint: NSLayoutConstraint!
     @IBOutlet weak var displayViewLandscapeConstraint: NSLayoutConstraint!
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     let borderWidth: CGFloat = 5.0
     
     let imagePicker = UIImagePickerController()
-    var imageDesigner: UIImageView?
+    var imageToDesign: UIImageView?
     
     var activityViewController: UIActivityViewController?
 
@@ -72,24 +72,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collection: [Any?] =
+        imagePicker.delegate = self
+        
+        paint()
+        buttonsRegisterTag()
+        gestureRegisterSwipe()
+        settingToFirstFrame()
+    }
+    
+    func paint() {
+        let borderRequired: [Any?] =
             [upRowMainButton, upRowSecondButton,
              downRowMainButton, downRowSecondButton,
              displayView]
-        for any in collection {
+        for any in borderRequired {
             guard let view = any as? UIView else { continue }
-            view.layer.borderWidth = borderWidth
+            view.layer.borderWidth = self.borderWidth
             view.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
         }
-
         displayView.layer.borderWidth = 10
         displayView.layer.borderColor = #colorLiteral(red: 0, green: 0.4076067805, blue: 0.6132292151, alpha: 1)
-        
-        imagePicker.delegate = self
-        
-        buttonsRegister()
-        gestureRegisterSwipe()
-        settingToFirstFrame()
     }
     
     override func viewDidLayoutSubviews() {
@@ -125,24 +127,24 @@ class ViewController: UIViewController {
     }
     func settingResetAll() {
         let pics: [UIImageView?] =
-            [firstPic, secondPic, thirdPic,
-             upRowMainPic, upRowSecondPic,
-             downRowMainPic, downRowSecondPic]
+            [settingFirstImageView, settingSecondImageView, settingThirdImageView,
+             upRowMainImageView, upRowSecondImageView,
+             downRowMainImageView, downRowSecondImageView]
         for pic in pics { pic?.isHidden = true }
     }
     func settingToFirstFrame () {
-        firstPic.isHidden = false
-        firstPic.image = #imageLiteral(resourceName: "Selected")
+        settingFirstImageView.isHidden = false
+        settingFirstImageView.image = #imageLiteral(resourceName: "Selected")
         currentFrame = .isFirst
     }
     func settingToSecondFrame () {
-        secondPic.isHidden = false
-        secondPic.image = #imageLiteral(resourceName: "Selected")
+        settingSecondImageView.isHidden = false
+        settingSecondImageView.image = #imageLiteral(resourceName: "Selected")
         currentFrame = .isSecond
     }
     func settingToThirdFrame () {
-        thirdPic.isHidden = false
-        thirdPic.image = #imageLiteral(resourceName: "Selected")
+        settingThirdImageView.isHidden = false
+        settingThirdImageView.image = #imageLiteral(resourceName: "Selected")
         currentFrame = .isThird
     }
     
@@ -185,12 +187,14 @@ class ViewController: UIViewController {
     
     // MARK: - Buttons
     
-    func buttonsRegister() {
+    func buttonsRegisterTag() {
+        // Assign a tag to buttons for later use
         for (button, tag) in [
-            (upRowMainButton!, EnumTag.upMain ),
-            (upRowSecondButton!, EnumTag.upSecond),
-            (downRowMainButton!, EnumTag.downMain),
-            (downRowSecondButton!, EnumTag.downSecond) ] {
+            (upRowMainButton, EnumTag.upMain ),
+            (upRowSecondButton, EnumTag.upSecond),
+            (downRowMainButton, EnumTag.downMain),
+            (downRowSecondButton, EnumTag.downSecond) ] {
+            guard let button = button else { continue }
             button.tag = tag.rawValue
             button.addTarget(
                 self,
@@ -200,13 +204,13 @@ class ViewController: UIViewController {
     }
     
     @objc private func buttonsRun(_ sender: UIButton) {
-        let tagToPic: [Int: UIImageView] =
-            [EnumTag.upMain.rawValue: upRowMainPic!,
-             EnumTag.upSecond.rawValue: upRowSecondPic!,
-             EnumTag.downMain.rawValue: downRowMainPic!,
-             EnumTag.downSecond.rawValue: downRowSecondPic!]
-        self.imageDesigner = tagToPic[sender.tag]!
-        
+        // Use a dictionnary to find the right ImageView
+        let tagToRightImageView: [Int: UIImageView] =
+            [EnumTag.upMain.rawValue: upRowMainImageView!,
+             EnumTag.upSecond.rawValue: upRowSecondImageView!,
+             EnumTag.downMain.rawValue: downRowMainImageView!,
+             EnumTag.downSecond.rawValue: downRowSecondImageView!]
+        self.imageToDesign = tagToRightImageView[sender.tag]!
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
@@ -225,6 +229,7 @@ class ViewController: UIViewController {
         
         guard let displayView = self.displayView else { return }
         switch (currentOrientation, sender.state, sender.direction) {
+        // Check screen orientation and gesture to move the displayView
         case (.isPortrait, .ended, .up):
             let translation = 0 - UIScreen.main.bounds.height
             gestureInPortraitWithAnimation(translation: translation)
@@ -233,23 +238,23 @@ class ViewController: UIViewController {
             gestureInLandscapeWithAnimation(translation: translation)
         default: return
         }
-        
+        // Render an Image from the current displayView
         let renderer = UIGraphicsImageRenderer(size: displayView.bounds.size)
         let renderedImage = renderer.image { _ in
             displayView.drawHierarchy(in: displayView.bounds, afterScreenUpdates: true)
         }
-        
+        // Add the rendered image to the UIActivityViewController
         self.activityViewController = UIActivityViewController(
             activityItems: [renderedImage],
             applicationActivities: nil)
     
         guard let avc = activityViewController else { return }
+        // Add a completion for the displayView to come back
         avc.completionWithItemsHandler = { (
             activity: UIActivity.ActivityType?,
             completed: Bool,
             result: [Any]?,
             error: Error?) in
-            
             UIView.animate(withDuration: 1) {
                 if sender.direction == .up {
                     self.displayViewPortraitConstraint.constant = 0
@@ -280,17 +285,13 @@ class ViewController: UIViewController {
 
 // MARK: - UIImagePickerControllerDelegate
 extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        var imagePicked: UIImage?
-        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imagePicked = originalImage
-            self.imageDesigner?.contentMode = .scaleAspectFill
-            self.imageDesigner?.image = imagePicked
-            self.imageDesigner?.isHidden = false
+        if let originalPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.imageToDesign?.contentMode = .scaleAspectFill
+            self.imageToDesign?.image = originalPickedImage
+            self.imageToDesign?.isHidden = false
             dismiss(animated: true, completion: nil)
         }
     }

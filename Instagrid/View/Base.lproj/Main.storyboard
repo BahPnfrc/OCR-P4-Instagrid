@@ -268,7 +268,7 @@
                                                     <action selector="actionRequestedFirstSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d6c-gr-exn"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-AI-rM6" userLabel="firstPic">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-AI-rM6" userLabel="firstImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                             </imageView>
                                         </subviews>
@@ -295,7 +295,7 @@
                                                     <action selector="actionRequestedSecondSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j41-id-f8g"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I" userLabel="secondPic">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-b9-o7I" userLabel="secondImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="98.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tzn-b9-o7I" secondAttribute="height" multiplier="1:1" id="ed1-TG-wJz"/>
@@ -324,7 +324,7 @@
                                                     <action selector="actionRequestedThirdSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FgO-BN-Qkd"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT" userLabel="thirdPic">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-Te-ZGT" userLabel="thirdImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="98.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pKR-Te-ZGT" secondAttribute="height" multiplier="1:1" id="VC6-tV-5md"/>
@@ -439,29 +439,29 @@
                         <outlet property="displayViewMainStack" destination="bkm-mv-8jF" id="LxP-9O-uei"/>
                         <outlet property="displayViewPortraitConstraint" destination="zhI-eZ-bwK" id="pAJ-dP-51i"/>
                         <outlet property="downRowMainButton" destination="xfd-QY-D3F" id="7Xa-2s-Ub6"/>
-                        <outlet property="downRowMainPic" destination="fzd-Jt-R0l" id="Bmn-YT-0TE"/>
+                        <outlet property="downRowMainImageView" destination="fzd-Jt-R0l" id="Bmn-YT-0TE"/>
                         <outlet property="downRowMainPlus" destination="KAG-Rd-bZQ" id="M34-JV-Uth"/>
                         <outlet property="downRowMainView" destination="4yw-FO-XiJ" id="Fuv-wt-9Kw"/>
                         <outlet property="downRowSecondButton" destination="WYA-cA-9yE" id="z3T-bI-H9b"/>
-                        <outlet property="downRowSecondPic" destination="8S4-Ay-BHC" id="aAP-l7-gwI"/>
+                        <outlet property="downRowSecondImageView" destination="8S4-Ay-BHC" id="aAP-l7-gwI"/>
                         <outlet property="downRowSecondPlus" destination="5qG-mO-G8D" id="YYp-gX-nNX"/>
                         <outlet property="downRowSecondView" destination="WIa-yq-ms0" id="7Dn-3D-XYU"/>
-                        <outlet property="firstButton" destination="Ehd-AQ-ffW" id="sCb-Zr-6YD"/>
-                        <outlet property="firstPic" destination="AyG-AI-rM6" id="YbO-Bx-flc"/>
                         <outlet property="instagridLabel" destination="KGI-pX-M8l" id="Jhc-eB-OG8"/>
-                        <outlet property="secondPic" destination="tzn-b9-o7I" id="mRd-1p-oT3"/>
-                        <outlet property="secondbutton" destination="JBn-2I-36r" id="Mbu-A7-n8y"/>
+                        <outlet property="settingFirstButton" destination="Ehd-AQ-ffW" id="sCb-Zr-6YD"/>
+                        <outlet property="settingFirstImageView" destination="AyG-AI-rM6" id="YbO-Bx-flc"/>
+                        <outlet property="settingSecondButton" destination="JBn-2I-36r" id="Mbu-A7-n8y"/>
+                        <outlet property="settingSecondImageView" destination="tzn-b9-o7I" id="mRd-1p-oT3"/>
+                        <outlet property="settingThirdButton" destination="Qih-Gv-onA" id="Rdl-B6-eMR"/>
+                        <outlet property="settingThirdImageView" destination="pKR-Te-ZGT" id="nmP-Jg-uXe"/>
                         <outlet property="swipeArrow" destination="osD-zK-xRA" id="nk3-B1-5p3"/>
                         <outlet property="swipeLabel" destination="U3X-9j-eby" id="TED-Dx-JxX"/>
                         <outlet property="swipeView" destination="2wb-Ab-30E" id="eH5-Nk-cZn"/>
-                        <outlet property="thirdButton" destination="Qih-Gv-onA" id="Rdl-B6-eMR"/>
-                        <outlet property="thirdPic" destination="pKR-Te-ZGT" id="nmP-Jg-uXe"/>
                         <outlet property="upRowMainButton" destination="Q2Y-jM-QtE" id="07v-qo-rsX"/>
-                        <outlet property="upRowMainPic" destination="79E-hM-1Nj" id="tTJ-Hi-hWE"/>
+                        <outlet property="upRowMainImageView" destination="79E-hM-1Nj" id="tTJ-Hi-hWE"/>
                         <outlet property="upRowMainPlus" destination="9NP-ZF-FP7" id="xod-6D-b6B"/>
                         <outlet property="upRowMainView" destination="H4u-2k-3PM" id="jsY-LF-a68"/>
                         <outlet property="upRowSecondButton" destination="mLM-wJ-Z5W" id="HrV-lw-QMS"/>
-                        <outlet property="upRowSecondPic" destination="OQU-JE-qSF" id="CQV-zu-4MV"/>
+                        <outlet property="upRowSecondImageView" destination="OQU-JE-qSF" id="CQV-zu-4MV"/>
                         <outlet property="upRowSecondPlus" destination="Ieu-sO-Z2A" id="smB-g8-Yd4"/>
                         <outlet property="upRowSecondView" destination="iBQ-EV-1Ko" id="LX8-rJ-bdc"/>
                     </connections>
